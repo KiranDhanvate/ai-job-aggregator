@@ -1,0 +1,20 @@
+# Artifacts Directory
+
+This directory contains training artifacts and preprocessing files.
+
+## Files Generated During Training:
+
+- `feature_extractor.pkl` - Fitted feature extractor
+- `feature_extractor_preprocessor.pkl` - Data preprocessor
+- `model_config.json` - Model configuration
+- `training_history.json` - Training metrics
+- `training_curves.png` - Training visualization
+
+## Usage:
+
+Artifacts are automatically saved during training and used for:
+
+- Feature extraction on new data
+- Model configuration reference
+- Training history analysis
+- Model reproducibility

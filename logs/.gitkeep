@@ -1,0 +1,29 @@
+# Logs Directory
+
+This directory contains application logs and training logs.
+
+## Log Files:
+
+- `api.log` - API server logs
+- `training.log` - Model training logs
+- `recommendation.log` - Recommendation generation logs
+- `error.log` - Error logs
+
+## Log Configuration:
+
+Logs are automatically generated with the following format:
+- Timestamp
+- Logger name
+- Log level
+- Message
+
+## Log Levels:
+
+- INFO: General information
+- WARNING: Warning messages
+- ERROR: Error conditions
+- DEBUG: Debug information (when enabled)
+
+## Log Rotation:
+
+Consider setting up log rotation for production environments to manage disk space.

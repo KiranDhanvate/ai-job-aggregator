@@ -1,0 +1,23 @@
+# Models Directory
+
+This directory contains trained ConvFM models and related files.
+
+## Files Generated During Training:
+
+- `best_convfm_model.pt` - Best trained model weights
+- `convfm_model_[timestamp].pt` - Timestamped model versions
+- `training_history.json` - Training metrics and history
+- `model_config.json` - Model configuration parameters
+
+## Usage:
+
+Models are automatically saved here during training and can be loaded for inference:
+
+```python
+import torch
+from ml_models.convfm_model import ConvFMJobRecommender
+
+# Load model
+model = ConvFMJobRecommender(...)
+model.load_state_dict(torch.load('models/best_convfm_model.pt'))
+```

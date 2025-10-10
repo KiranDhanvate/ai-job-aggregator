@@ -1,0 +1,39 @@
+# Data Directory
+
+This directory contains datasets and data files for the job recommendation system.
+
+## Expected Files:
+
+- `collected_jobs.csv` - Scraped job data
+- `user_interactions.csv` - User-job interaction data
+- `user_profiles.json` - User profile information
+- `user_interactions.csv` - User feedback and interactions
+
+## Data Collection:
+
+Use the complete example script to collect data:
+
+```bash
+python scripts/complete_example.py
+```
+
+This will scrape job data and create interaction datasets for training.
+
+## Data Format:
+
+### collected_jobs.csv
+- job_id: Unique job identifier
+- title: Job title
+- company: Company name
+- location: Job location
+- description: Job description
+- salary: Salary information
+- job_type: Type of employment
+- is_remote: Remote work availability
+
+### user_interactions.csv
+- user_id: User identifier
+- job_id: Job identifier
+- rating: User rating (0-1)
+- timestamp: Interaction timestamp
+- interaction_type: Type of interaction (view, apply, save)
