@@ -1,33 +1,75 @@
-[build-system]
-requires = [ "poetry-core",]
-build-backend = "poetry.core.masonry.api"
-
 [tool.poetry]
-name = "python-jobspy"
-version = "1.1.82"
-description = "Job scraper for LinkedIn, Indeed, Glassdoor, ZipRecruiter & Bayt"
-authors = ["Cullen Watson <cullen@cullenwatson.com>", "Zachary Hampton <zachary@zacharysproducts.com>"]
-homepage = "https://github.com/cullenwatson/JobSpy"
+name = "jobspy-recommender-api"
+version = "2.1.0"
+description = "A Python library for scraping job listings and providing AI recommendations."
+authors = ["Hasan Ghasemzadeh <hghasemzadeh@ucdavis.edu>", "KIRAN <you@example.com>"]
 readme = "README.md"
-keywords = [ "jobs-scraper", "linkedin", "indeed", "glassdoor", "ziprecruiter", "bayt", "naukri"]
-[[tool.poetry.packages]]
-include = "jobspy"
-
-[tool.black]
-line-length = 88
+packages = [{include = "jobspy"}, {include = "recommendation_model"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-requests = "^2.31.0"
-beautifulsoup4 = "^4.12.2"
-pandas = "^2.1.0"
-NUMPY = "^2.3"
-pydantic = "^2.3.0"
-tls-client = "^1.0.1"
-markdownify = "^1.1.0"
-regex = "^2024.4.28"
+
+# --- Core Scraping Dependencies ---
+jobspy = "^1.5.1"
+pandas = "^2.2.2"
+beautifulsoup4 = "^4.12.3"
+pydantic = "2.7.1"
+
+# --- API Server Dependencies ---
+fastapi = "^0.111.0"
+uvicorn = {extras = ["standard"], version = "^0.29.0"}
+
+# --- Machine Learning Dependencies ---
+tensorflow = "2.16.1"
+scikit-learn = "1.4.2"
 
 [tool.poetry.group.dev.dependencies]
-jupyter = "^1.0.0"
-black = "*"
-pre-commit = "*"
+pytest = "^8.1.1"
+pre-commit = "^3.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+```
+
+### **The Definitive 4-Step Plan to Success**
+
+Please follow these steps in your terminal in **this exact order**. This plan will get your project working.
+
+**Step 1: Verify the `pyproject.toml` File**
+
+After saving the file above, run `poetry check` again. This is the most important step to confirm the file is now correct.
+
+```bash
+poetry check
+```
+
+The output **must be**: **`All set!`**.
+* If you see `All set!`, you can proceed to Step 2.
+* If you still see the `TOMLDecodeError`, it means the file was not saved correctly. Please try saving it again, ensuring there are no extra lines or characters.
+
+**Step 2: Install All Dependencies**
+
+Once the file is verified, `poetry` can read it. Run the install command to download and install `tensorflow`, `pandas`, and everything else.
+
+```bash
+poetry install
+```
+
+**Step 3: Train the Model**
+
+Make sure you have a `scraped_jobs.json` file in your project folder. Then, run the training script:
+
+```bash
+python -m recommendation_model.train
+```
+
+This will now find `tensorflow` and `pandas` and should complete successfully.
+
+**Step 4: Run the API Server**
+
+Once training is complete, start your server:
+
+```bash
+uvicorn api_server:app --reload
+

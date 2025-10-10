@@ -5,8 +5,8 @@ This package contains machine learning models and utilities for job recommendati
 """
 
 from .convfm_model import ConvFMJobRecommender
-from .feature_extractor import FeatureExtractor
-from .training_pipeline import TrainingPipeline
+from .feature_extractor import JobFeatureExtractor
+from .training_pipeline import ConvFMTrainingPipeline
 
 __version__ = "1.0.0"
-__all__ = ["ConvFMJobRecommender", "FeatureExtractor", "TrainingPipeline"]
+__all__ = ["ConvFMJobRecommender", "JobFeatureExtractor", "ConvFMTrainingPipeline"]
