@@ -77,4 +77,3 @@ pyyaml>=6.0.1
 
 # Optional: Feature engineering
 # category-encoders>=2.6.0
-# feature-engine>=1.6.0

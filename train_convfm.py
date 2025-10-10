@@ -329,15 +329,15 @@ def main():
     
     # Training arguments
     parser.add_argument('--epochs', type=int, default=50,
-                       help='Number of training epochs')
+                        help='Number of training epochs')
     parser.add_argument('--batch-size', type=int, default=32,
                        help='Training batch size')
     parser.add_argument('--learning-rate', type=float, default=0.001,
-                       help='Learning rate')
+                        help='Learning rate')
     parser.add_argument('--validation-split', type=float, default=0.2,
                        help='Validation data split')
     parser.add_argument('--patience', type=int, default=10,
-                       help='Early stopping patience')
+                        help='Early stopping patience')
     
     # Other arguments
     parser.add_argument('--num-users', type=int, default=1000,
