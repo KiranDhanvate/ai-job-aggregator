@@ -305,11 +305,10 @@ class ConvFMTrainer:
         predictions = np.array(predictions)
         labels = np.array(labels)
         
-        # Convert continuous labels to binary (ratings > 0.5 are positive)
-        labels_binary = (labels > 0.5).astype(int)
+        # Binary classification metrics
         pred_binary = (predictions > 0.5).astype(int)
         
-        accuracy = np.mean(pred_binary == labels_binary)
+        accuracy = np.mean(pred_binary == labels)
         
         return {
             'loss': total_loss / len(dataloader),

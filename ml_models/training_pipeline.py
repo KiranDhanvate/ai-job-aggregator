@@ -211,18 +211,17 @@ class ConvFMTrainingPipeline:
         predictions = metrics['predictions']
         labels = metrics['labels']
         
-        # Convert continuous labels to binary (ratings > 0.5 are positive)
-        labels_binary = (labels > 0.5).astype(int)
+        # Precision, Recall, F1
         pred_binary = (predictions > 0.5).astype(int)
         
         from sklearn.metrics import precision_score, recall_score, f1_score, roc_auc_score
         
-        precision = precision_score(labels_binary, pred_binary, zero_division=0)
-        recall = recall_score(labels_binary, pred_binary, zero_division=0)
-        f1 = f1_score(labels_binary, pred_binary, zero_division=0)
+        precision = precision_score(labels, pred_binary, zero_division=0)
+        recall = recall_score(labels, pred_binary, zero_division=0)
+        f1 = f1_score(labels, pred_binary, zero_division=0)
         
         try:
-            auc = roc_auc_score(labels_binary, predictions)
+            auc = roc_auc_score(labels, predictions)
         except ValueError:
             auc = 0.0
         
