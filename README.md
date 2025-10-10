@@ -1,260 +1,369 @@
-<img src="https://github.com/cullenwatson/JobSpy/assets/78247585/ae185b7e-e444-4712-8bb9-fa97f53e896b" width="400">
+# 🚀 AI Job Aggregator & Recommender API
 
-**JobSpy** is a job scraping library with the goal of aggregating all the jobs from popular job boards with one tool.
+[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.111+-green.svg)](https://fastapi.tiangolo.com)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.16+-orange.svg)](https://tensorflow.org)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## Features
+> **Real-time job scraping meets AI-powered recommendations** - A comprehensive solution for intelligent job discovery and personalized career guidance.
 
-- Scrapes job postings from **LinkedIn**, **Indeed**, **Glassdoor**, **Google**, **ZipRecruiter**, & other job boards concurrently
-- Aggregates the job postings in a dataframe
-- Proxies support to bypass blocking
+## 🌟 Features
 
-![jobspy](https://github.com/cullenwatson/JobSpy/assets/78247585/ec7ef355-05f6-4fd3-8161-a817e31c5c57)
+### 🔍 **Real-Time Job Scraping**
+- **Multi-platform scraping** from LinkedIn, Indeed, Glassdoor, Naukri, and more
+- **Live data fetching** - Always up-to-date job postings
+- **Full job descriptions** with detailed company information
+- **Advanced filtering** by location, remote work, job type, and recency
+- **Rate limiting protection** with intelligent retry mechanisms
+
+### 🤖 **AI-Powered Recommendations**
+- **Personalized job matching** using machine learning
+- **Skill-based recommendations** based on job requirements
+- **Career path suggestions** with growth opportunities
+- **Salary predictions** and market insights
+- **Company culture analysis** and fit scoring
+
+### 🚀 **Production-Ready API**
+- **FastAPI-based** RESTful API with automatic documentation
+- **Async processing** for high-performance scraping
+- **Comprehensive error handling** and logging
+- **Health monitoring** and performance metrics
+- **CORS enabled** for frontend integration
+
+### 📊 **Data Intelligence**
+- **Real-time analytics** and scraping statistics
+- **Data quality validation** and completeness reports
+- **Export capabilities** (CSV, JSON formats)
+- **Database integration** with SQLAlchemy
+- **Performance monitoring** and optimization insights
+
+## 🛠️ Tech Stack
+
+| Category | Technologies |
+|----------|-------------|
+| **Backend** | FastAPI, Python 3.10+, Uvicorn |
+| **ML/AI** | TensorFlow, Scikit-learn, Pandas |
+| **Scraping** | JobSpy, BeautifulSoup4, Requests |
+| **Database** | SQLAlchemy, SQLite/PostgreSQL |
+| **DevOps** | Poetry, Pre-commit, Pytest |
+| **API** | RESTful APIs, Async processing |
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Python 3.10 or higher
+- Poetry (for dependency management)
+- Git
 
 ### Installation
 
-```
-pip install -U python-jobspy
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/KiranDhanvate/ai-job-aggregator.git
+   cd ai-job-aggregator
+   ```
+
+2. **Install dependencies**
+   ```bash
+   # Install Poetry if not already installed
+   curl -sSL https://install.python-poetry.org | python3 -
+   
+   # Install project dependencies
+   poetry install
+   
+   # Activate virtual environment
+   poetry shell
+   ```
+
+3. **Train the recommendation model**
+   ```bash
+   python -m recommendation_model.train
+   ```
+
+4. **Start the API server**
+   ```bash
+   uvicorn api_server:app --reload --host 0.0.0.0 --port 8000
+   ```
+
+5. **Access the API documentation**
+   - Open your browser to: `http://localhost:8000/docs`
+   - Interactive API documentation with Swagger UI
+
+## 📖 API Usage
+
+### 🔍 **Basic Job Scraping**
+
+```bash
+# Quick job search
+curl -X GET "http://localhost:8000/scrape?search_term=python%20developer&location=San%20Francisco&results_wanted=10"
 ```
 
-_Python version >= [3.10](https://www.python.org/downloads/release/python-3100/) required_
+### 🤖 **AI-Powered Recommendations**
 
-### Usage
+```bash
+# Get personalized job recommendations
+curl -X POST "http://localhost:8000/scrape-and-recommend" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "search_term": "machine learning engineer",
+    "location": "Remote",
+    "user_skills": ["Python", "TensorFlow", "AWS", "Docker"],
+    "experience_years": 3,
+    "preferred_salary_min": 80000
+  }'
+```
+
+### 📊 **API Endpoints**
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/` | GET | API information and status |
+| `/health` | GET | Health check and metrics |
+| `/scrape` | GET/POST | Job scraping with various filters |
+| `/scrape-and-recommend` | POST | AI-powered job recommendations |
+| `/stats` | GET | Scraping statistics and analytics |
+| `/docs` | GET | Interactive API documentation |
+
+## 🔧 Configuration
+
+### Environment Variables
+Create a `.env` file in your project root:
+
+```env
+# API Configuration
+API_HOST=0.0.0.0
+API_PORT=8000
+DEBUG=True
+
+# Scraping Configuration
+MAX_RESULTS_PER_REQUEST=50
+REQUEST_TIMEOUT=30
+RATE_LIMIT_DELAY=1
+
+# Database Configuration
+DATABASE_URL=sqlite:///./jobspy.db
+
+# ML Model Configuration
+MODEL_PATH=./artifacts/recommendation_model.h5
+```
+
+### Supported Job Sites
+- **LinkedIn** - Professional networking and job postings
+- **Indeed** - Global job search platform
+- **Glassdoor** - Company reviews and job listings
+- **Naukri** - Indian job portal
+- **BDJobs** - Bangladesh job portal
+- **ZipRecruiter** - US job search platform
+
+## 📊 Example Usage
+
+### Python Client Example
 
 ```python
-import csv
-from jobspy import scrape_jobs
+import requests
+import json
 
-jobs = scrape_jobs(
-    site_name=["indeed", "linkedin", "zip_recruiter", "google"], # "glassdoor", "bayt", "naukri", "bdjobs"
-    search_term="software engineer",
-    google_search_term="software engineer jobs near San Francisco, CA since yesterday",
-    location="San Francisco, CA",
-    results_wanted=20,
-    hours_old=72,
-    country_indeed='USA',
-    
-    # linkedin_fetch_description=True # gets more info such as description, direct job url (slower)
-    # proxies=["208.195.175.46:65095", "208.195.175.45:65095", "localhost"],
-)
-print(f"Found {len(jobs)} jobs")
-print(jobs.head())
-jobs.to_csv("jobs.csv", quoting=csv.QUOTE_NONNUMERIC, escapechar="\\", index=False) # to_excel
+# Basic job scraping
+response = requests.post('http://localhost:8000/scrape', json={
+    'search_term': 'data scientist',
+    'location': 'New York',
+    'results_wanted': 20,
+    'is_remote': True,
+    'hours_old': 72
+})
+
+jobs = response.json()
+print(f"Found {jobs['count']} jobs")
+
+# AI-powered recommendations
+recommendations = requests.post('http://localhost:8000/scrape-and-recommend', json={
+    'search_term': 'software engineer',
+    'location': 'Remote',
+    'user_skills': ['Python', 'React', 'AWS'],
+    'experience_years': 2,
+    'preferred_salary_min': 70000
+})
+
+recommended_jobs = recommendations.json()
+print(f"AI found {recommended_jobs['count']} matching jobs")
 ```
 
-### Output
+### JavaScript/Node.js Example
 
-```
-SITE           TITLE                             COMPANY           CITY          STATE  JOB_TYPE  INTERVAL  MIN_AMOUNT  MAX_AMOUNT  JOB_URL                                            DESCRIPTION
-indeed         Software Engineer                 AMERICAN SYSTEMS  Arlington     VA     None      yearly    200000      150000      https://www.indeed.com/viewjob?jk=5e409e577046...  THIS POSITION COMES WITH A 10K SIGNING BONUS!...
-indeed         Senior Software Engineer          TherapyNotes.com  Philadelphia  PA     fulltime  yearly    135000      110000      https://www.indeed.com/viewjob?jk=da39574a40cb...  About Us TherapyNotes is the national leader i...
-linkedin       Software Engineer - Early Career  Lockheed Martin   Sunnyvale     CA     fulltime  yearly    None        None        https://www.linkedin.com/jobs/view/3693012711      Description:By bringing together people that u...
-linkedin       Full-Stack Software Engineer      Rain              New York      NY     fulltime  yearly    None        None        https://www.linkedin.com/jobs/view/3696158877      Rain’s mission is to create the fastest and ea...
-zip_recruiter Software Engineer - New Grad       ZipRecruiter      Santa Monica  CA     fulltime  yearly    130000      150000      https://www.ziprecruiter.com/jobs/ziprecruiter...  We offer a hybrid work environment. Most US-ba...
-zip_recruiter Software Developer                 TEKsystems        Phoenix       AZ     fulltime  hourly    65          75          https://www.ziprecruiter.com/jobs/teksystems-0...  Top Skills' Details• 6 years of Java developme...
+```javascript
+const axios = require('axios');
 
-```
+// Scrape jobs
+async function scrapeJobs() {
+    try {
+        const response = await axios.post('http://localhost:8000/scrape', {
+            search_term: 'frontend developer',
+            location: 'San Francisco',
+            results_wanted: 15
+        });
+        
+        console.log(`Found ${response.data.count} jobs`);
+        return response.data.jobs;
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+}
 
-### Parameters for `scrape_jobs()`
-
-```plaintext
-Optional
-├── site_name (list|str): 
-|    linkedin, zip_recruiter, indeed, glassdoor, google, bayt, bdjobs
-|    (default is all)
-│
-├── search_term (str)
-|
-├── google_search_term (str)
-|     search term for google jobs. This is the only param for filtering google jobs.
-│
-├── location (str)
-│
-├── distance (int): 
-|    in miles, default 50
-│
-├── job_type (str): 
-|    fulltime, parttime, internship, contract
-│
-├── proxies (list): 
-|    in format ['user:pass@host:port', 'localhost']
-|    each job board scraper will round robin through the proxies
-|
-├── is_remote (bool)
-│
-├── results_wanted (int): 
-|    number of job results to retrieve for each site specified in 'site_name'
-│
-├── easy_apply (bool): 
-|    filters for jobs that are hosted on the job board site (LinkedIn easy apply filter no longer works)
-|
-├── user_agent (str): 
-|    override the default user agent which may be outdated
-│
-├── description_format (str): 
-|    markdown, html (Format type of the job descriptions. Default is markdown.)
-│
-├── offset (int): 
-|    starts the search from an offset (e.g. 25 will start the search from the 25th result)
-│
-├── hours_old (int): 
-|    filters jobs by the number of hours since the job was posted 
-|    (ZipRecruiter and Glassdoor round up to next day.)
-│
-├── verbose (int) {0, 1, 2}: 
-|    Controls the verbosity of the runtime printouts 
-|    (0 prints only errors, 1 is errors+warnings, 2 is all logs. Default is 2.)
-
-├── linkedin_fetch_description (bool): 
-|    fetches full description and direct job url for LinkedIn (Increases requests by O(n))
-│
-├── linkedin_company_ids (list[int]): 
-|    searches for linkedin jobs with specific company ids
-|
-├── country_indeed (str): 
-|    filters the country on Indeed & Glassdoor (see below for correct spelling)
-|
-├── enforce_annual_salary (bool): 
-|    converts wages to annual salary
-|
-├── ca_cert (str)
-|    path to CA Certificate file for proxies
+// Get AI recommendations
+async function getRecommendations() {
+    try {
+        const response = await axios.post('http://localhost:8000/scrape-and-recommend', {
+            search_term: 'full stack developer',
+            user_skills: ['JavaScript', 'Python', 'React', 'Node.js'],
+            experience_years: 3,
+            preferred_salary_min: 80000
+        });
+        
+        return response.data.recommended_jobs;
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+}
 ```
 
+## 🧪 Testing
+
+Run the comprehensive test suite:
+
+```bash
+# Run all tests
+pytest
+
+# Run with coverage
+pytest --cov=jobspy --cov=api_server
+
+# Run specific test file
+pytest tests/test_scraper.py -v
 ```
-├── Indeed limitations:
-|    Only one from this list can be used in a search:
-|    - hours_old
-|    - job_type & is_remote
-|    - easy_apply
-│
-└── LinkedIn limitations:
-|    Only one from this list can be used in a search:
-|    - hours_old
-|    - easy_apply
+
+## 📈 Performance & Monitoring
+
+### Health Check
+```bash
+curl http://localhost:8000/health
 ```
 
-## Supported Countries for Job Searching
+### Statistics
+```bash
+curl http://localhost:8000/stats
+```
 
-### **LinkedIn**
+### Metrics Dashboard
+The API provides real-time metrics including:
+- Total requests processed
+- Jobs scraped per site
+- Average response times
+- Error rates and success rates
+- Model prediction accuracy
 
-LinkedIn searches globally & uses only the `location` parameter. 
+## 🚀 Deployment
 
-### **ZipRecruiter**
+### Docker Deployment
 
-ZipRecruiter searches for jobs in **US/Canada** & uses only the `location` parameter.
+```dockerfile
+FROM python:3.10-slim
 
-### **Indeed / Glassdoor**
+WORKDIR /app
 
-Indeed & Glassdoor supports most countries, but the `country_indeed` parameter is required. Additionally, use the `location`
-parameter to narrow down the location, e.g. city & state if necessary. 
+COPY pyproject.toml poetry.lock ./
+RUN pip install poetry && poetry config virtualenvs.create false
+RUN poetry install --no-dev
 
-You can specify the following countries when searching on Indeed (use the exact name, * indicates support for Glassdoor):
+COPY . .
 
-|                      |              |            |                |
-|----------------------|--------------|------------|----------------|
-| Argentina            | Australia*   | Austria*   | Bahrain        |
-| Belgium*             | Brazil*      | Canada*    | Chile          |
-| China                | Colombia     | Costa Rica | Czech Republic |
-| Denmark              | Ecuador      | Egypt      | Finland        |
-| France*              | Germany*     | Greece     | Hong Kong*     |
-| Hungary              | India*       | Indonesia  | Ireland*       |
-| Israel               | Italy*       | Japan      | Kuwait         |
-| Luxembourg           | Malaysia     | Mexico*    | Morocco        |
-| Netherlands*         | New Zealand* | Nigeria    | Norway         |
-| Oman                 | Pakistan     | Panama     | Peru           |
-| Philippines          | Poland       | Portugal   | Qatar          |
-| Romania              | Saudi Arabia | Singapore* | South Africa   |
-| South Korea          | Spain*       | Sweden     | Switzerland*   |
-| Taiwan               | Thailand     | Turkey     | Ukraine        |
-| United Arab Emirates | UK*          | USA*       | Uruguay        |
-| Venezuela            | Vietnam*     |            |                |
+CMD ["uvicorn", "api_server:app", "--host", "0.0.0.0", "--port", "8000"]
+```
 
-### **Bayt**
+### Cloud Deployment (AWS/GCP/Azure)
 
-Bayt only uses the search_term parameter currently and searches internationally
+```bash
+# Install dependencies
+pip install -r requirements.txt
 
+# Set environment variables
+export API_HOST=0.0.0.0
+export API_PORT=8000
 
+# Run with Gunicorn for production
+gunicorn api_server:app -w 4 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
+```
 
-## Notes
-* Indeed is the best scraper currently with no rate limiting.  
-* All the job board endpoints are capped at around 1000 jobs on a given search.  
-* LinkedIn is the most restrictive and usually rate limits around the 10th page with one ip. Proxies are a must basically.
+## 🤝 Contributing
 
-## Frequently Asked Questions
+We welcome contributions! Please follow these steps:
+
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
+3. **Commit your changes**: `git commit -m 'Add amazing feature'`
+4. **Push to the branch**: `git push origin feature/amazing-feature`
+5. **Open a Pull Request**
+
+### Development Setup
+
+```bash
+# Install development dependencies
+poetry install --with dev
+
+# Install pre-commit hooks
+pre-commit install
+
+# Run linting
+pre-commit run --all-files
+```
+
+## 📋 Roadmap
+
+### 🎯 **Upcoming Features**
+- [ ] **Advanced ML Models** - Deep learning for better recommendations
+- [ ] **Real-time Notifications** - WebSocket support for live updates
+- [ ] **Company Analytics** - Detailed company insights and trends
+- [ ] **Mobile App** - React Native mobile application
+- [ ] **Chrome Extension** - Browser extension for job tracking
+- [ ] **Salary Predictions** - ML-powered salary estimation
+- [ ] **Skills Gap Analysis** - Personalized learning recommendations
+
+### 🔮 **Future Enhancements**
+- [ ] **Multi-language Support** - Support for multiple job markets
+- [ ] **Advanced Filtering** - Industry-specific filters and criteria
+- [ ] **API Rate Limiting** - Intelligent rate limiting and caching
+- [ ] **Data Export** - Advanced export options and integrations
+- [ ] **Analytics Dashboard** - Comprehensive analytics and reporting
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Kiran Dhanvate**
+- GitHub: [@KiranDhanvate](https://github.com/KiranDhanvate)
+- LinkedIn: [Kiran Dhanvate](https://linkedin.com/in/kiran-dhanvate)
+- Portfolio: [Your Portfolio Website]
+
+## 🙏 Acknowledgments
+
+- **JobSpy** - Core scraping functionality
+- **FastAPI** - High-performance API framework
+- **TensorFlow** - Machine learning capabilities
+- **Open Source Community** - For continuous improvements
+
+## 📞 Support
+
+- **Documentation**: [Full API Documentation](http://localhost:8000/docs)
+- **Issues**: [GitHub Issues](https://github.com/KiranDhanvate/ai-job-aggregator/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/KiranDhanvate/ai-job-aggregator/discussions)
 
 ---
-**Q: Why is Indeed giving unrelated roles?**  
-**A:** Indeed searches the description too.
 
-- use - to remove words
-- "" for exact match
+<div align="center">
 
-Example of a good Indeed query
+**⭐ Star this repository if you found it helpful!**
 
-```py
-search_term='"engineering intern" software summer (java OR python OR c++) 2025 -tax -marketing'
-```
+Made with ❤️ by [Kiran Dhanvate](https://github.com/KiranDhanvate)
 
-This searches the description/title and must include software, summer, 2025, one of the languages, engineering intern exactly, no tax, no marketing.
-
----
-
-**Q: No results when using "google"?**  
-**A:** You have to use super specific syntax. Search for google jobs on your browser and then whatever pops up in the google jobs search box after applying some filters is what you need to copy & paste into the google_search_term. 
-
----
-
-**Q: Received a response code 429?**  
-**A:** This indicates that you have been blocked by the job board site for sending too many requests. All of the job board sites are aggressive with blocking. We recommend:
-
-- Wait some time between scrapes (site-dependent).
-- Try using the proxies param to change your IP address.
-
----
-
-### JobPost Schema
-
-```plaintext
-JobPost
-├── title
-├── company
-├── company_url
-├── job_url
-├── location
-│   ├── country
-│   ├── city
-│   ├── state
-├── is_remote
-├── description
-├── job_type: fulltime, parttime, internship, contract
-├── job_function
-│   ├── interval: yearly, monthly, weekly, daily, hourly
-│   ├── min_amount
-│   ├── max_amount
-│   ├── currency
-│   └── salary_source: direct_data, description (parsed from posting)
-├── date_posted
-└── emails
-
-Linkedin specific
-└── job_level
-
-Linkedin & Indeed specific
-└── company_industry
-
-Indeed specific
-├── company_country
-├── company_addresses
-├── company_employees_label
-├── company_revenue_label
-├── company_description
-└── company_logo
-
-Naukri specific
-├── skills
-├── experience_range
-├── company_rating
-├── company_reviews_count
-├── vacancy_count
-└── work_from_home_type
-```
+</div>
