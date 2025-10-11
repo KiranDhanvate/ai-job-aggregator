@@ -5,28 +5,38 @@ export interface SearchParams {
   search?: string;
   location?: string;
   site?: string;
-  days_old?: number;
   results?: number;
-  remote_only?: boolean;
 }
 
-// Define the structure of a job
+// Define the structure of a job (updated to match API response)
 export interface Job {
-  job_id: string;
-  job_title: string;
-  company_name: string;
+  id?: string;
+  job_id?: string;
+  title?: string;
+  job_title?: string;
+  company?: string;
+  company_name?: string;
   company_logo?: string;
   company_url?: string;
   location: string;
   remote_work?: string;
+  is_remote?: boolean;
   job_level?: string;
+  description?: string;
+  description_clean?: string;
   job_description?: string;
   date_posted: string;
   days_ago?: number;
-  job_source: string;
+  site?: string;
+  job_source?: string;
   job_url: string;
+  job_type?: string;
   listing_type?: string;
+  skills?: string[];
   skills_required?: string[];
+  min_amount?: number;
+  max_amount?: number;
+  currency?: string;
   salary_range?: {
     currency: string;
     min_amount: number;

@@ -24,9 +24,12 @@ import Footer from '../components/Footer';
 
 // Type definitions
 interface Job {
+  id?: string; // Added for compatibility with new API response
   job_id: string;
   job_title: string;
+  title?: string; // Alternative field name
   company_name: string;
+  company?: string; // Alternative field name
   company_url: string;
   job_url: string;
   location: string;
@@ -42,11 +45,14 @@ interface Job {
   employmentType?: string;
   education?: string;
   skills?: string[];
+  requirements?: string[];
   benefits?: string[];
   company_size?: string;
   industry?: string;
   companyWebsite?: string;
   companyLinkedIn?: string;
+  companyRating?: string;
+  postedDate?: string;
   matchPercentage?: number;
 }
 
@@ -61,38 +67,72 @@ interface SearchResults {
   timestamp: string;
 }
 
-// Placeholder data for job details not available in localStorage
-const placeholderJobDetails = {
-  companyDescription: 'A leading technology company specializing in innovative solutions.',
-  salary: 'Competitive',
-  fullDescription: `
-    <p>This position requires expertise in the technologies mentioned in the job title and description.</p>
-    
-    <h4>Responsibilities:</h4>
-    <ul>
-      <li>Develop and maintain software applications</li>
-      <li>Collaborate with cross-functional teams</li>
-      <li>Participate in code reviews and ensure code quality</li>
-      <li>Troubleshoot and resolve technical issues</li>
-    </ul>
-    
-    <h4>Requirements:</h4>
-    <ul>
-      <li>Experience with relevant programming languages and frameworks</li>
-      <li>Strong problem-solving skills</li>
-      <li>Good communication abilities</li>
-      <li>Ability to work in a team environment</li>
-    </ul>
-  `,
-  expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
-  employmentType: 'Full-time',
-  education: "Bachelor's degree in Computer Science or related field",
-  skills: ['Java', 'Spring Boot', 'Hibernate', 'RESTful APIs', 'SQL'],
-  benefits: ['Health Insurance', 'Flexible Hours', 'Professional Development'],
-  company_size: '500+ employees',
-  industry: 'Software Development',
-  companyWebsite: 'https://example.com',
-  matchPercentage: 85
+// Function to extract skills from job description
+const extractSkillsFromDescription = (description: string): string[] => {
+  if (!description) return [];
+  
+  const commonSkills = [
+    'JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'Java', 'C++', 'C#',
+    'HTML', 'CSS', 'SQL', 'MongoDB', 'PostgreSQL', 'MySQL', 'AWS', 'Azure', 'GCP',
+    'Docker', 'Kubernetes', 'Git', 'Jenkins', 'Spring Boot', 'Angular', 'Vue.js',
+    'Express', 'Django', 'Flask', 'REST', 'GraphQL', 'Microservices', 'API',
+    'Agile', 'Scrum', 'DevOps', 'CI/CD', 'Linux', 'Windows', 'MacOS',
+    'Machine Learning', 'AI', 'Data Science', 'Analytics', 'Tableau', 'PowerBI'
+  ];
+  
+  const foundSkills = commonSkills.filter(skill => 
+    description.toLowerCase().includes(skill.toLowerCase())
+  );
+  
+  return foundSkills.length > 0 ? foundSkills : ['Not specified'];
+};
+
+// Function to extract requirements from job description
+const extractRequirements = (description: string): string[] => {
+  if (!description) return ['Not specified'];
+  
+  const requirements = [];
+  const lines = description.split('\n');
+  
+  for (const line of lines) {
+    const trimmedLine = line.trim();
+    if (trimmedLine.toLowerCase().includes('experience') || 
+        trimmedLine.toLowerCase().includes('require') ||
+        trimmedLine.toLowerCase().includes('must have') ||
+        trimmedLine.toLowerCase().includes('should have')) {
+      requirements.push(trimmedLine);
+    }
+  }
+  
+  return requirements.length > 0 ? requirements : ['Experience as mentioned in job description'];
+};
+
+// Function to process real job data
+const processJobData = (job: any) => {
+  const description = job.description || job.description_clean || '';
+  const skills = extractSkillsFromDescription(description);
+  const requirements = extractRequirements(description);
+  
+  return {
+    // Use real data from API response
+    companyDescription: job.company_description || job.company_industry || 'Company information not available',
+    salary: job.min_amount && job.max_amount 
+      ? `${job.currency || '$'} ${job.min_amount?.toLocaleString()} - ${job.max_amount?.toLocaleString()}`
+      : job.salary || 'Not specified',
+    fullDescription: description || 'Job description not available',
+    expiresAt: job.expires_at || new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
+    employmentType: job.job_type || job.listing_type || 'Not specified',
+    education: job.education || 'Not specified',
+    skills: skills,
+    requirements: requirements,
+    benefits: job.benefits || ['Not specified'],
+    company_size: job.company_num_employees ? `${job.company_num_employees} employees` : 'Not specified',
+    industry: job.company_industry || 'Not specified',
+    companyWebsite: job.company_url || 'Not specified',
+    companyRating: job.company_rating || 'Not specified',
+    postedDate: job.date_posted || 'Not specified',
+    matchPercentage: 85 // This would be calculated based on user profile in real app
+  };
 };
 
 const JobDetail = () => {
@@ -128,25 +168,43 @@ const JobDetail = () => {
           throw new Error('Invalid search results data');
         }
         
-        // Find the job with matching ID
-        const foundJob = searchResults.data.jobs.find(job => job.job_id === jobId);
+        // Find the job with matching ID (check both id and job_id fields)
+        let foundJob = searchResults.data.jobs.find(job => 
+          job.job_id === jobId || job.id === jobId
+        );
         
+        // If not found in current search results, check the job cache
         if (!foundJob) {
-          throw new Error(`Job with ID ${jobId} not found`);
+          const jobCacheString = localStorage.getItem('jobCache');
+          if (jobCacheString) {
+            try {
+              const jobCache = JSON.parse(jobCacheString);
+              foundJob = jobCache[jobId];
+              console.log('Found job in cache:', foundJob);
+            } catch (e) {
+              console.warn('Failed to parse job cache');
+            }
+          }
         }
         
-        // Merge with placeholder details for display purposes
+        if (!foundJob) {
+          throw new Error(`Job with ID ${jobId} not found in search results or cache`);
+        }
+        
+        // Process real job data instead of using placeholders
+        const processedJobData = processJobData(foundJob);
         const enhancedJob = {
           ...foundJob,
-          ...placeholderJobDetails,
-          postedAt: new Date().toISOString() // Mock posted date
+          ...processedJobData
         };
         
         setJob(enhancedJob);
         
         // Find similar jobs from the same data source
         // We'll define "similar" as jobs with the same job_level or similar job_title
-        const otherJobs = searchResults.data.jobs.filter(j => j.job_id !== jobId);
+        const otherJobs = searchResults.data.jobs.filter(j => 
+          j.job_id !== jobId && j.id !== jobId
+        );
         
         // Generate a simple similarity score based on job level and keywords in title
         const scoredJobs = otherJobs.map(j => {
@@ -158,8 +216,10 @@ const JobDetail = () => {
           }
           
           // Check for common keywords in job titles
-          const currentJobWords = foundJob.job_title.toLowerCase().split(/\s+/);
-          const comparedJobWords = j.job_title.toLowerCase().split(/\s+/);
+          const currentJobTitle = foundJob.job_title || foundJob.title || '';
+          const comparedJobTitle = j.job_title || j.title || '';
+          const currentJobWords = currentJobTitle.toLowerCase().split(/\s+/);
+          const comparedJobWords = comparedJobTitle.toLowerCase().split(/\s+/);
           
           currentJobWords.forEach(word => {
             if (word.length > 3 && comparedJobWords.includes(word)) {
@@ -168,7 +228,9 @@ const JobDetail = () => {
           });
           
           // Same company gives some points (but not too many)
-          if (j.company_name === foundJob.company_name) {
+          const currentCompany = foundJob.company_name || foundJob.company || '';
+          const comparedCompany = j.company_name || j.company || '';
+          if (currentCompany && comparedCompany && comparedCompany === currentCompany) {
             score += 10;
           }
           
@@ -180,7 +242,7 @@ const JobDetail = () => {
           
           return {
             ...j,
-            ...placeholderJobDetails,
+            ...processJobData(j),
             matchPercentage: Math.min(Math.round(score), 99) // Cap at 99%
           };
         });
@@ -209,9 +271,30 @@ const JobDetail = () => {
     return `${expiryDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`;
   };
   
-  // Function to format posted date (mock for now)
+  // Function to format posted date from real data
   const getPostedDate = () => {
-    return `March 23, 2025`; // Using current date as mock
+    if (!job?.postedDate || job.postedDate === 'Not specified') {
+      return 'Recently';
+    }
+    
+    try {
+      const date = new Date(job.postedDate);
+      const now = new Date();
+      const diffTime = Math.abs(now.getTime() - date.getTime());
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      
+      if (diffDays === 1) return '1 day ago';
+      if (diffDays < 7) return `${diffDays} days ago`;
+      if (diffDays < 30) return `${Math.ceil(diffDays / 7)} weeks ago`;
+      
+      return date.toLocaleDateString('en-US', { 
+        month: 'short', 
+        day: 'numeric', 
+        year: 'numeric' 
+      });
+    } catch (e) {
+      return 'Recently';
+    }
   };
   
   // Toggle saved state
@@ -264,8 +347,8 @@ const JobDetail = () => {
   return (
     <div className="min-h-screen bg-premium-gradient text-white">
       <Helmet>
-        <title>{job.job_title} at {job.company_name} | CareerSync</title>
-        <meta name="description" content={`Apply for ${job.job_title} position at ${job.company_name}`} />
+        <title>{job.job_title || job.title || 'Job'} at {job.company_name || job.company || 'Company'} | CareerSync</title>
+        <meta name="description" content={`Apply for ${job.job_title || job.title || 'job'} position at ${job.company_name || job.company || 'company'}`} />
       </Helmet>
       
       <main className="pt-24 pb-20">
@@ -295,11 +378,11 @@ const JobDetail = () => {
                   
                   <div className="flex-1">
                     <h1 className="text-2xl md:text-3xl font-medium text-white mb-2">
-                      {job.job_title}
+                      {job.job_title || job.title || 'Job Title Not Available'}
                     </h1>
                     
                     <div className="flex items-center text-silver-300 mb-4">
-                      <span className="font-medium">{job.company_name}</span>
+                      <span className="font-medium">{job.company_name || job.company || 'Company Not Available'}</span>
                     </div>
                     
                     <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-silver-400">
@@ -433,6 +516,24 @@ const JobDetail = () => {
                   className="prose prose-invert max-w-none text-silver-300"
                   dangerouslySetInnerHTML={{ __html: job.fullDescription || '<p>Please visit the job link for a detailed description.</p>' }}
                 />
+              </motion.div>
+              
+              {/* Requirements Section */}
+              <motion.div 
+                className="premium-glass rounded-lg p-6 mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.25 }}
+              >
+                <h2 className="text-xl font-medium mb-4">Requirements</h2>
+                <ul className="space-y-2">
+                  {(job.requirements || ['Not specified']).map((requirement, index) => (
+                    <li key={index} className="flex items-start gap-2 text-silver-300">
+                      <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-sm">{requirement}</span>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
               
               {/* Company Information */}

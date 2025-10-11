@@ -1,100 +1,175 @@
-import { supabase } from '@/integrations/supabase/client';
-
-// Job Search API
+// Job Search API - Main functionality
 export const searchJobs = async (params: {
   search?: string;
   location?: string;
   site?: string;
-  days_old?: number;
   results?: number;
-  remote_only?: boolean;
 }) => {
   try {
-    const response = await fetch('https://careersync-m6ct.onrender.com/api/search', {
+    // Map site parameter to site_name array format expected by the API
+    let siteNames = ['linkedin']; // Default to LinkedIn
+    if (params.site && params.site !== 'all') {
+      siteNames = [params.site];
+    }
+
+    const requestBody = {
+      search_term: params.search || 'developer',
+      location: params.location || 'mumbai',
+      results_wanted: params.results || 10,
+      site_name: siteNames
+    };
+
+    console.log('Sending request to scrape API:', requestBody);
+
+    const response = await fetch('http://localhost:5000/scrape', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        search: params.search || '',
-        location: params.location || '',
-        site: params.site || 'all',
-        days_old: params.days_old || 7,
-        results: params.results || 10,
-        remote_only: params.remote_only || false,
-      }),
+      body: JSON.stringify(requestBody),
     });
 
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const data = await response.json();
+    // Get the raw response text first to handle invalid JSON
+    const responseText = await response.text();
+    console.log('Raw response from scrape API:', responseText);
     
-    // Store the search results in localStorage as a string
-    localStorage.setItem("searchResults", JSON.stringify(data));
+    let data;
+    try {
+      // Try to parse JSON, but handle NaN values
+      const cleanedResponse = responseText.replace(/:\s*NaN/g, ': null');
+      data = JSON.parse(cleanedResponse);
+      console.log('Parsed response from scrape API:', data);
+    } catch (parseError) {
+      console.error('JSON parsing error:', parseError);
+      console.error('Raw response that failed to parse:', responseText);
+      throw new Error('Invalid JSON response from server');
+    }
     
-    return data;
+    // Transform the response to match our expected format
+    // Add unique IDs to jobs since the API doesn't provide them
+    const jobsWithIds = (data.jobs || []).map((job, index) => ({
+      ...job,
+      id: `job-${Date.now()}-${index}`, // Generate unique ID
+      job_id: `job-${Date.now()}-${index}` // Also add job_id for compatibility
+    }));
+
+    const transformedData = {
+      success: data.success !== false,
+      data: {
+        jobs: jobsWithIds,
+        query: params,
+        results_count: data.count || 0
+      },
+      message: data.success === false ? 'Failed to fetch jobs' : 'Jobs fetched successfully'
+    };
+    
+    // Store the search results in localStorage, but also maintain a job cache
+    localStorage.setItem("searchResults", JSON.stringify(transformedData));
+    
+    // Also maintain a persistent job cache that accumulates jobs across searches
+    const existingJobCache = localStorage.getItem("jobCache");
+    let jobCache: { [key: string]: any } = {};
+    
+    if (existingJobCache) {
+      try {
+        jobCache = JSON.parse(existingJobCache);
+      } catch (e) {
+        console.warn('Failed to parse existing job cache, starting fresh');
+        jobCache = {};
+      }
+    }
+    
+    // Add new jobs to the cache
+    jobsWithIds.forEach(job => {
+      if (job.id) {
+        jobCache[job.id] = job;
+      }
+      if (job.job_id) {
+        jobCache[job.job_id] = job;
+      }
+    });
+    
+    // Store the updated job cache
+    localStorage.setItem("jobCache", JSON.stringify(jobCache));
+    
+    return transformedData;
   } catch (error) {
     console.error('Error searching jobs:', error);
-    throw error;
+    return {
+      success: false,
+      data: null,
+      message: error instanceof Error ? error.message : 'Failed to fetch jobs'
+    };
   }
 };
 
-// Job Detail API
+// Mock implementations for other APIs (removed Supabase dependencies)
+// These can be implemented later with a different backend or local storage
+
 export const getJobById = async (jobId: string) => {
-  const { data, error } = await supabase
-    .from('jobs')
-    .select(`
-      *,
-      job_skills(skill)
-    `)
-    .eq('id', jobId)
-    .single();
+  // Mock implementation - you can implement this with your backend later
+  console.log('getJobById called with:', jobId);
   
-  if (error) throw error;
-  return data;
+  // Try to get job from localStorage search results
+  const searchResults = localStorage.getItem("searchResults");
+  if (searchResults) {
+    const parsed = JSON.parse(searchResults);
+    const job = parsed.data?.jobs?.find((j: any) => j.id === jobId || j.job_id === jobId);
+    if (job) return job;
+  }
+  
+  throw new Error('Job not found');
 };
 
-// Saved Jobs API
 export const toggleSavedJob = async (jobId: string, action: 'save' | 'unsave') => {
-  const { data, error } = await supabase.functions.invoke('toggle-saved-job', {
-    method: 'POST',
-    body: { jobId, action }
-  });
+  // Mock implementation using localStorage
+  console.log('toggleSavedJob called:', { jobId, action });
   
-  if (error) throw error;
-  return data;
+  const savedJobs = JSON.parse(localStorage.getItem('savedJobs') || '[]');
+  
+  if (action === 'save') {
+    if (!savedJobs.includes(jobId)) {
+      savedJobs.push(jobId);
+    }
+  } else {
+    const index = savedJobs.indexOf(jobId);
+    if (index > -1) {
+      savedJobs.splice(index, 1);
+    }
+  }
+  
+  localStorage.setItem('savedJobs', JSON.stringify(savedJobs));
+  return { success: true };
 };
 
 export const getSavedJobs = async () => {
-  const { data, error } = await supabase
-    .from('saved_jobs')
-    .select(`
-      job_id,
-      jobs(*)
-    `)
-    .order('created_at', { ascending: false });
+  // Mock implementation using localStorage
+  console.log('getSavedJobs called');
   
-  if (error) throw error;
-  return data.map(item => ({
-    id: item.job_id,
-    ...item.jobs
-  }));
+  const savedJobIds = JSON.parse(localStorage.getItem('savedJobs') || '[]');
+  const searchResults = localStorage.getItem("searchResults");
+  
+  if (searchResults && savedJobIds.length > 0) {
+    const parsed = JSON.parse(searchResults);
+    const savedJobs = parsed.data?.jobs?.filter((job: any) => 
+      savedJobIds.includes(job.id || job.job_id)
+    ) || [];
+    return savedJobs;
+  }
+  
+  return [];
 };
 
 export const checkJobSaved = async (jobId: string) => {
-  const { data, error } = await supabase
-    .from('saved_jobs')
-    .select('id')
-    .eq('job_id', jobId)
-    .maybeSingle();
-  
-  if (error) throw error;
-  return !!data;
+  // Mock implementation using localStorage
+  const savedJobs = JSON.parse(localStorage.getItem('savedJobs') || '[]');
+  return savedJobs.includes(jobId);
 };
 
-// Job Applications API
 export const submitApplication = async ({
   jobId,
   resumeUrl,
@@ -106,110 +181,101 @@ export const submitApplication = async ({
   coverLetterUrl?: string;
   notes?: string;
 }) => {
-  const { data, error } = await supabase.functions.invoke('submit-application', {
-    method: 'POST',
-    body: { jobId, resumeUrl, coverLetterUrl, notes }
-  });
+  // Mock implementation using localStorage
+  console.log('submitApplication called:', { jobId, resumeUrl, coverLetterUrl, notes });
   
-  if (error) throw error;
-  return data;
+  const applications = JSON.parse(localStorage.getItem('applications') || '[]');
+  const newApplication = {
+    id: Date.now().toString(),
+    jobId,
+    resumeUrl,
+    coverLetterUrl,
+    notes,
+    status: 'applied',
+    applied_at: new Date().toISOString()
+  };
+  
+  applications.push(newApplication);
+  localStorage.setItem('applications', JSON.stringify(applications));
+  
+  return newApplication;
 };
 
 export const getApplications = async () => {
-  const { data, error } = await supabase
-    .from('applications')
-    .select(`
-      *,
-      jobs(*)
-    `)
-    .order('applied_at', { ascending: false });
-  
-  if (error) throw error;
-  return data;
+  // Mock implementation using localStorage
+  console.log('getApplications called');
+  return JSON.parse(localStorage.getItem('applications') || '[]');
 };
 
 export const getApplicationById = async (applicationId: string) => {
-  const { data, error } = await supabase
-    .from('applications')
-    .select(`
-      *,
-      jobs(*),
-      application_notes(*)
-    `)
-    .eq('id', applicationId)
-    .single();
+  // Mock implementation using localStorage
+  console.log('getApplicationById called:', applicationId);
   
-  if (error) throw error;
-  return data;
+  const applications = JSON.parse(localStorage.getItem('applications') || '[]');
+  const application = applications.find((app: any) => app.id === applicationId);
+  
+  if (!application) {
+    throw new Error('Application not found');
+  }
+  
+  return application;
 };
 
 export const updateApplicationStatus = async (applicationId: string, status: string) => {
-  const { data, error } = await supabase
-    .from('applications')
-    .update({ 
-      status, 
-      updated_at: new Date().toISOString() 
-    })
-    .eq('id', applicationId)
-    .select()
-    .single();
+  // Mock implementation using localStorage
+  console.log('updateApplicationStatus called:', { applicationId, status });
   
-  if (error) throw error;
-  return data;
+  const applications = JSON.parse(localStorage.getItem('applications') || '[]');
+  const applicationIndex = applications.findIndex((app: any) => app.id === applicationId);
+  
+  if (applicationIndex === -1) {
+    throw new Error('Application not found');
+  }
+  
+  applications[applicationIndex].status = status;
+  applications[applicationIndex].updated_at = new Date().toISOString();
+  
+  localStorage.setItem('applications', JSON.stringify(applications));
+  
+  return applications[applicationIndex];
 };
 
 export const addApplicationNote = async (applicationId: string, note: string) => {
-  const { data, error } = await supabase
-    .from('application_notes')
-    .insert([{
-      application_id: applicationId,
-      note,
-      user_id: (await supabase.auth.getUser()).data.user?.id
-    }])
-    .select()
-    .single();
+  // Mock implementation using localStorage
+  console.log('addApplicationNote called:', { applicationId, note });
   
-  if (error) throw error;
-  return data;
+  const notes = JSON.parse(localStorage.getItem('applicationNotes') || '[]');
+  const newNote = {
+    id: Date.now().toString(),
+    application_id: applicationId,
+    note,
+    created_at: new Date().toISOString()
+  };
+  
+  notes.push(newNote);
+  localStorage.setItem('applicationNotes', JSON.stringify(notes));
+  
+  return newNote;
 };
 
-// Notifications API
 export const getNotifications = async (params?: {
   limit?: number;
   offset?: number;
   unreadOnly?: boolean;
 }) => {
-  const { data, error } = await supabase.functions.invoke('get-notifications', {
-    method: 'POST',
-    body: { 
-      limit: params?.limit,
-      offset: params?.offset,
-      unreadOnly: params?.unreadOnly 
-    }
-  });
-  
-  if (error) throw error;
-  return data;
+  // Mock implementation
+  console.log('getNotifications called:', params);
+  return [];
 };
 
 export const markNotificationAsRead = async (notificationId: string) => {
-  // Using the edge function instead of direct DB access for better error handling and logging
-  const { data, error } = await supabase.functions.invoke('mark-notification', {
-    method: 'POST',
-    body: { notificationId, read: true }
-  });
-  
-  if (error) throw error;
-  return data;
+  // Mock implementation
+  console.log('markNotificationAsRead called:', notificationId);
+  return { success: true };
 };
 
 export const markAllNotificationsAsRead = async () => {
-  // Using the edge function instead of direct DB access for better error handling and logging
-  const { data, error } = await supabase.functions.invoke('mark-all-notifications', {
-    method: 'POST',
-    body: { read: true }
-  });
-  
-  if (error) throw error;
-  return data;
+  // Mock implementation
+  console.log('markAllNotificationsAsRead called');
+  return { success: true };
 };

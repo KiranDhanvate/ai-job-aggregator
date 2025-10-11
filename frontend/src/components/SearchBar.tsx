@@ -18,10 +18,8 @@ const SearchBar = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const [filters, setFilters] = useState({
-    site: 'all',
-    days_old: 7,
+    site: 'linkedin',
     results: 10,
-    remote_only: false,
   });
   const filtersRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
@@ -47,20 +45,16 @@ const SearchBar = () => {
       
       // Initialize filters from URL or context or defaults
       setFilters({
-        site: site || searchParams.site || 'all',
-        days_old: daysOld ? parseInt(daysOld) : (searchParams.days_old || 7),
+        site: site || searchParams.site || 'linkedin',
         results: results ? parseInt(results) : (searchParams.results || 10),
-        remote_only: remoteOnly ? remoteOnly === 'true' : (searchParams.remote_only || false),
       });
       
       // Update context search params to match what we've set locally
       setSearchParams({
         search: q || searchParams.search || '',
         location: loc || searchParams.location || '',
-        site: site || searchParams.site || 'all',
-        days_old: daysOld ? parseInt(daysOld) : (searchParams.days_old || 7),
+        site: site || searchParams.site || 'linkedin',
         results: results ? parseInt(results) : (searchParams.results || 10),
-        remote_only: remoteOnly ? remoteOnly === 'true' : (searchParams.remote_only || false),
       });
     }
   }, [searchParams, setSearchParams]); // Added dependencies to fix React hooks exhaustive deps warning
@@ -73,9 +67,7 @@ const SearchBar = () => {
       search: searchQuery,
       location: location,
       site: filters.site,
-      days_old: filters.days_old,
-      results: filters.results,
-      remote_only: filters.remote_only
+      results: filters.results
     };
     
     // Update context
@@ -121,10 +113,8 @@ const SearchBar = () => {
     setSearchQuery('');
     setLocation('');
     setFilters({
-      site: 'all',
-      days_old: 7,
+      site: 'linkedin',
       results: 10,
-      remote_only: false,
     });
   };
   
@@ -240,46 +230,29 @@ const SearchBar = () => {
             ref={filtersRef}
           >
             <div className="premium-glass rounded-xl p-5 shadow-premium border border-white/10 backdrop-blur-md">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-silver-300">Job Board</label>
                   <select 
-                    className="w-full premium-glass text-white rounded-lg px-3 py-2.5 border border-white/10 focus:border-navy-500 focus:ring-1 focus:ring-navy-500 focus:outline-none bg-blue-600 appearance-none"
+                    className="w-full premium-glass text-white rounded-lg px-3 py-2.5 border border-white/10 focus:border-navy-500 focus:ring-1 focus:ring-navy-500 focus:outline-none appearance-none"
                     value={filters.site}
                     onChange={(e) => updateFilter('site', e.target.value)}
-                    style={{ backgroundColor: 'transparent', WebkitBackgroundColor: 'transparent', backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik02IDFMMS41IDZMMTAuNSA2TDYgMVoiIGZpbGw9IndoaXRlIiBzdHJva2U9IndoaXRlIi8+Cjwvc3ZnPgo=')", backgroundRepeat: "no-repeat", backgroundPosition: "right 0.75rem center", paddingRight: "2.5rem" }}
+                    style={{ backgroundColor: 'transparent', backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik02IDFMMS41IDZMMTAuNSA2TDYgMVoiIGZpbGw9IndoaXRlIiBzdHJva2U9IndoaXRlIi8+Cjwvc3ZnPgo=')", backgroundRepeat: "no-repeat", backgroundPosition: "right 0.75rem center", paddingRight: "2.5rem" }}
                   >
-                    <option value="all">All Sites</option>
-                    <option value="indeed">Indeed</option>
                     <option value="linkedin">LinkedIn</option>
+                    <option value="indeed">Indeed</option>
                     <option value="glassdoor">Glassdoor</option>
-                    <option value="zip_recruiter">ZipRecruiter</option>
-                  </select>
-                </div>
-                
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-silver-300">Job Age</label>
-                  <select 
-                    className="w-full premium-glass text-white rounded-lg px-3 py-2.5 border border-white/10 focus:border-navy-500 focus:ring-1 focus:ring-navy-500 focus:outline-none bg-bg-blue-600 appearance-none"
-                    value={filters.days_old}
-                    onChange={(e) => updateFilter('days_old', parseInt(e.target.value))}
-                    style={{ backgroundColor: 'transparent', WebkitBackgroundColor: 'transparent', backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik02IDFMMS41IDZMMTAuNSA2TDYgMVoiIGZpbGw9IndoaXRlIiBzdHJva2U9IndoaXRlIi8+Cjwvc3ZnPgo=')", backgroundRepeat: "no-repeat", backgroundPosition: "right 0.75rem center", paddingRight: "2.5rem" }}
-                  >
-                    <option value="1">Last 24 hours</option>
-                    <option value="3">Last 3 days</option>
-                    <option value="7">Last 7 days</option>
-                    <option value="14">Last 14 days</option>
-                    <option value="30">Last 30 days</option>
+                    <option value="ziprecruiter">ZipRecruiter</option>
                   </select>
                 </div>
                 
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-silver-300">Results Per Page</label>
                   <select 
-                    className="w-full premium-glass text-white rounded-lg px-3 py-2.5 border border-white/10 focus:border-navy-500 focus:ring-1 focus:ring-navy-500 focus:outline-none bg-bg-blue-600 appearance-none"
+                    className="w-full premium-glass text-white rounded-lg px-3 py-2.5 border border-white/10 focus:border-navy-500 focus:ring-1 focus:ring-navy-500 focus:outline-none appearance-none"
                     value={filters.results}
                     onChange={(e) => updateFilter('results', parseInt(e.target.value))}
-                    style={{ backgroundColor: 'transparent', WebkitBackgroundColor: 'transparent', backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik02IDFMMS41IDZMMTAuNSA2TDYgMVoiIGZpbGw9IndoaXRlIiBzdHJva2U9IndoaXRlIi8+Cjwvc3ZnPgo=')", backgroundRepeat: "no-repeat", backgroundPosition: "right 0.75rem center", paddingRight: "2.5rem" }}
+                    style={{ backgroundColor: 'transparent', backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik02IDFMMS41IDZMMTAuNSA2TDYgMVoiIGZpbGw9IndoaXRlIiBzdHJva2U9IndoaXRlIi8+Cjwvc3ZnPgo=')", backgroundRepeat: "no-repeat", backgroundPosition: "right 0.75rem center", paddingRight: "2.5rem" }}
                   >
                     <option value="5">5 results</option>
                     <option value="10">10 results</option>
@@ -287,23 +260,6 @@ const SearchBar = () => {
                     <option value="50">50 results</option>
                   </select>
                 </div>
-              </div>
-              
-              <div className="mt-5">
-                <label className="inline-flex items-center gap-2 text-sm text-silver-300 cursor-pointer group">
-                  <div className="relative flex items-center">
-                    <input 
-                      type="checkbox" 
-                      className="peer sr-only"
-                      checked={filters.remote_only}
-                      onChange={(e) => updateFilter('remote_only', e.target.checked)}
-                    />
-                    <div className="h-5 w-5 rounded border border-white/20 bg-transparent peer-checked:bg-navy-500 peer-checked:border-navy-500 transition-all flex items-center justify-center">
-                      {filters.remote_only && <div className="text-white"><svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4L4.5 7.5L11 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></div>}
-                    </div>
-                  </div>
-                  <span className="group-hover:text-white transition-colors">Remote jobs only</span>
-                </label>
               </div>
               
               <div className="flex justify-between mt-5 pt-4 border-t border-white/10">

@@ -7,7 +7,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '@/integrations/supabase/client';
+// Removed Supabase import
 import { Loader2 } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
 
@@ -59,28 +59,22 @@ const ResetPasswordForm = () => {
     setIsLoading(true);
     
     try {
-      const { error } = await supabase.auth.updateUser({
-        password: values.password,
+      // Mock password reset - no real functionality
+      console.log('Mock password reset for:', values.password);
+      
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      setIsSuccess(true);
+      toast({
+        title: 'Password reset successful',
+        description: 'Your password has been updated successfully. (Mock implementation)',
       });
       
-      if (error) {
-        toast({
-          title: 'Password reset failed',
-          description: error.message,
-          variant: 'destructive',
-        });
-      } else {
-        setIsSuccess(true);
-        toast({
-          title: 'Password reset successful',
-          description: 'Your password has been updated successfully.',
-        });
-        
-        // Redirect to login after a delay
-        setTimeout(() => {
-          navigate('/auth');
-        }, 3000);
-      }
+      // Redirect to login after a delay
+      setTimeout(() => {
+        navigate('/auth');
+      }, 3000);
     } catch (error: any) {
       toast({
         title: 'Password reset failed',
