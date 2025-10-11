@@ -156,6 +156,8 @@ Desktop.ini
 
 # Log files
 *.log
+logs/
+log/
 
 # Output files
 *.csv
@@ -177,3 +179,93 @@ Desktop.ini
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# ============================================
+# ConvFM Model Specific
+# ============================================
+
+# Model checkpoints and trained models
+models/
+*.pt
+*.pth
+*.h5
+*.hdf5
+checkpoint/
+checkpoints/
+
+# Model artifacts
+artifacts/
+*.pkl
+*.pickle
+
+# Training data and outputs
+data/
+!data/.gitkeep
+data/*.csv
+data/*.json
+data/*.parquet
+
+# Training logs
+logs/
+*.log
+wandb/
+mlruns/
+
+# Tensorboard
+runs/
+events.out.tfevents.*
+
+# Training visualizations
+*.png
+*.jpg
+*.jpeg
+!docs/**/*.png
+!docs/**/*.jpg
+
+# Temporary training files
+*.tmp
+.training_cache/
+
+# Feature engineering cache
+.feature_cache/
+feature_cache/
+
+# Preprocessed data
+preprocessed/
+processed/
+
+# Model evaluation results
+evaluation/
+results/
+
+# Experiment tracking
+experiments/
+.mlflow/
+
+# Large files
+*.zip
+*.tar.gz
+*.rar
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+*.ipynb
+
+# Python virtual environment
+ml_env/
+convfm_env/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Configuration files with secrets
+config/secrets.yaml
+.secrets/
+
+# API keys and credentials
+.env.local
+.env.production
+credentials.json
+service-account.json
