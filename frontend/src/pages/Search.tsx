@@ -31,16 +31,16 @@ const mockJobs = [
   // Will be replaced with real data from API
 ];
 
-// Update filter categories based on the new API structure
+// Simplified filter categories based on the new API structure
 const filterCategories = [
   {
     name: 'Experience Level',
     key: 'experienceLevel',
     icon: Award,
     options: [
-      { value: 'entry_level', label: 'Entry Level' },
-      { value: 'mid_level', label: 'Mid Level' },
-      { value: 'senior_level', label: 'Senior Level' },
+      { value: 'entry level', label: 'Entry Level' },
+      { value: 'mid-senior level', label: 'Mid Level' },
+      { value: 'senior level', label: 'Senior Level' },
       { value: 'executive', label: 'Executive' },
     ],
   },
@@ -49,33 +49,10 @@ const filterCategories = [
     key: 'jobType',
     icon: Briefcase,
     options: [
-      { value: 'full-time', label: 'Full-time' },
-      { value: 'part-time', label: 'Part-time' },
+      { value: 'fulltime', label: 'Full-time' },
+      { value: 'parttime', label: 'Part-time' },
       { value: 'contract', label: 'Contract' },
       { value: 'internship', label: 'Internship' },
-      { value: 'temporary', label: 'Temporary' },
-    ],
-  },
-  {
-    name: 'Remote Options',
-    key: 'remote',
-    icon: Wifi,
-    options: [
-      { value: 'remote', label: 'Remote' },
-      { value: 'hybrid', label: 'Hybrid' },
-      { value: 'onsite', label: 'On-site' },
-    ],
-  },
-  {
-    name: 'Date Posted',
-    key: 'datePosted',
-    icon: CalendarDays,
-    options: [
-      { value: '1', label: 'Today' },
-      { value: '3', label: 'Past 3 days' },
-      { value: '7', label: 'Past week' },
-      { value: '14', label: 'Past 2 weeks' },
-      { value: '30', label: 'Past month' },
     ],
   },
 ];
@@ -105,19 +82,15 @@ const Search = () => {
     const params = new URLSearchParams(location.search);
     const searchQuery = params.get('q');
     const locationParam = params.get('location');
-    const site = params.get('site') || 'all';
-    const daysOld = params.get('days_old') ? parseInt(params.get('days_old') || '7') : 7;
+    const site = params.get('site') || 'linkedin';
     const results = params.get('results') ? parseInt(params.get('results') || '10') : 10;
-    const remoteOnly = params.get('remote_only') === 'true';
     
     // Create the search parameters object
     const newSearchParams = {
       search: searchQuery || '',
       location: locationParam || '',
       site,
-      days_old: daysOld,
       results,
-      remote_only: remoteOnly,
     };
 
     // Just update search params in context but don't fetch
@@ -205,23 +178,23 @@ const Search = () => {
   // Transform job data to match JobCard component expectations
   const transformJobForCard = (job) => {
     return {
-      id: job.job_id,
-      title: job.job_title,
-      company: job.company_name,
+      id: job.id || job.job_id,
+      title: job.title || job.job_title,
+      company: job.company || job.company_name,
       location: job.location || "Location not specified",
       company_url: job.company_url,
-      salary: job.salary_range ? 
-        `${job.salary_range.currency} ${job.salary_range.min_amount?.toLocaleString()} - ${job.salary_range.max_amount?.toLocaleString()}` : 
+      salary: job.min_amount && job.max_amount ? 
+        `${job.currency || '$'} ${job.min_amount?.toLocaleString()} - ${job.max_amount?.toLocaleString()}` : 
         undefined,
       logo_url: job.company_logo,
-      description: job.job_description,
-      source: job.job_source,
+      description: job.description || job.description_clean,
+      source: job.site || job.job_source,
       source_url: job.job_url,
       posted_at: job.date_posted,
-      is_remote: job.remote_work === 'Remote',
+      is_remote: job.is_remote || job.remote_work === 'Remote',
       experience_level: job.job_level,
-      job_type: job.listing_type,
-      matchPercentage: job.skills_required ? Math.min(job.skills_required.length * 20, 100) : undefined,
+      job_type: job.job_type || job.listing_type,
+      matchPercentage: job.skills ? Math.min(job.skills.length * 20, 100) : undefined,
     };
   };
 
@@ -435,7 +408,7 @@ const Search = () => {
                     : 'space-y-4'
                 }`}>
                   {filteredJobs.map((job) => (
-                    <JobCard key={job.job_id} job={transformJobForCard(job)} />
+                    <JobCard key={job.id || job.job_id || Math.random()} job={transformJobForCard(job)} />
                   ))}
                 </div>
               ) : (

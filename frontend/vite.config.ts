@@ -15,6 +15,16 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      // Completely replace Supabase with our mock
+      "@supabase/supabase-js": path.resolve(__dirname, "./src/integrations/supabase/mock.ts"),
     },
+  },
+  define: {
+    // Disable Supabase in build
+    'process.env.SUPABASE_DISABLED': '"true"',
+  },
+  optimizeDeps: {
+    // Exclude Supabase from dependency optimization
+    exclude: ['@supabase/supabase-js']
   },
 }));
