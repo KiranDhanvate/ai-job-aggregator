@@ -1,0 +1,190 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 95% 40%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 10% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 10% 20%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 181 58% 47%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 15% 25%;
+    --input: 217 15% 25%;
+    --ring: 210 95% 40%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-navy-500/20 selection:text-navy-400;
+  }
+  
+  body {
+    @apply bg-navy-900 text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight text-white font-medium;
+  }
+  
+  h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl leading-extra-tight;
+  }
+  
+  h2 {
+    @apply text-2xl md:text-3xl leading-tight;
+  }
+  
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+  
+  p {
+    @apply text-base leading-relaxed;
+  }
+}
+
+@layer utilities {
+  /* Premium glass effect */
+  .premium-glass {
+    @apply bg-glass-gradient backdrop-blur-xl border border-white/10 shadow-premium;
+  }
+  
+  /* Premium card styling */
+  .premium-card {
+    @apply bg-card-gradient backdrop-blur-lg border border-white/10 shadow-subtle transition-all duration-300 hover:shadow-premium;
+  }
+  
+  /* Premium card with hover effect */
+  .premium-card-interactive {
+    @apply bg-card-gradient backdrop-blur-lg border border-white/10 shadow-subtle transition-all duration-300 hover:shadow-premium hover:-translate-y-1;
+  }
+  
+  /* Premium button styling */
+  .premium-button {
+    @apply bg-button-gradient text-white shadow-button transition-all duration-300 hover:shadow-premium hover:-translate-y-0.5 focus:ring-2 focus:ring-navy-500/50 focus:outline-none;
+  }
+  
+  /* Premium alt button styling */
+  .premium-button-alt {
+    @apply bg-teal-gradient text-white shadow-button transition-all duration-300 hover:shadow-premium hover:-translate-y-0.5 focus:ring-2 focus:ring-teal-500/50 focus:outline-none;
+  }
+  
+  /* Premium outline button */
+  .premium-button-outline {
+    @apply bg-transparent border border-white/20 text-white hover:bg-white/5 transition-all duration-300 focus:ring-2 focus:ring-white/10 focus:outline-none;
+  }
+  
+  /* Text gradient effect */
+  .text-gradient {
+    @apply bg-gradient-to-r from-navy-500 to-teal-500 bg-clip-text text-transparent;
+  }
+  
+  /* Typography utilities */
+  .title-large {
+    @apply text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter;
+  }
+  
+  .title-medium {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight;
+  }
+  
+  .title-small {
+    @apply text-xl md:text-2xl font-medium tracking-tight;
+  }
+  
+  .body-large {
+    @apply text-lg text-silver-300;
+  }
+  
+  .body-medium {
+    @apply text-base text-silver-400;
+  }
+  
+  .body-small {
+    @apply text-sm text-silver-500;
+  }
+  
+  .caption {
+    @apply text-xs text-silver-600;
+  }
+  
+  /* Scrollbar utilities */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .premium-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+  }
+  
+  .premium-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .premium-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .premium-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+  }
+  
+  /* Animation delay utilities */
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+}
