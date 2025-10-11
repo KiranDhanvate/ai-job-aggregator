@@ -1,0 +1,769 @@
+id,site,job_url,job_url_direct,title,company,location,date_posted,job_type,salary_source,interval,min_amount,max_amount,currency,is_remote,job_level,job_function,listing_type,emails,description,company_industry,company_url,company_logo,company_url_direct,company_addresses,company_num_employees,company_revenue,company_description,skills,experience_range,company_rating,company_reviews_count,vacancy_count,work_from_home_type
+in-443e3c0fab0eb5e5,indeed,https://www.indeed.com/viewjob?jk=443e3c0fab0eb5e5,https://grnh.se/5ez8f52t3us,Sr. AI/ML Engineer III (6123),Metrostar Systems,"Herndon, VA, US",06-10-2025,fulltime,direct_data,yearly,188000,269000,USD,FALSE,,,,,"As **Sr. AI/ML Engineer III**, you'll support a large data project alongside an agile team of developers, data engineers, supporting a highly cleared customer.
+
+We know that you can't have great technology services without amazing people. At MetroStar, we are **obsessed** withour people and have led a two-decade legacy of building the best and brightest teams. Because we know our future relies on our deep understanding and relentless focus on our people, we live by our mission: A passion for our people. Value for our customers.
+
+If you think you can see yourself delivering our mission and pursuing our goals with us, then check out the job description below!
+
+**What you'll do:**
+
+* You'll analyze complex datasets to assess performance or find new patterns
+* You'll build, train, operationalize and maintain AI/ML models in production
+* You'll apply machine learning techniques to data sets related to immigration
+* You'll present results to a diverse audience in presentation or report form
+* You'll support architectural leadership, technical support, and advisement services to ensure identity management system technologies are integrated and meeting the appropriate security requirements
+* You'll support leadership who engage with senior level executives at a public facing Federal agency and provide subject matter expertise in security architecture and other key domain areas
+
+**What you'll need to succeed:**
+
+* Minimum 10 years experience
+* Bachelor's degree or equivalent experience
+* Active TS/SCI CI Clearance
+* You have extensive experience using open-source models to the largest extent possible or provide a comparable analysis and justification for using proprietary models
+* Expert experience with at least two of following AI/ML methods: Generative AI/LLMs, NLP, RAG, and neural networks.
+* At least 8 years experience with at least two following technologies: Python, R, Anaconda, Numpy, TensorFlow, Keras, SciKit-Learn, and Postgres
+* You have at least 8 years experience designing, implementing, and maintaining data architecture and services to be used for AI/ML. Additionally, able to maintain the AI/ML models through user stories and DevSecOps CI/CD pipeline including any optimization and evaluation of alternatives
+* Expert experience designing, developing, and deploying AI/ML solutions into classified AWS cloud environments at IL6+.You have the ability to perform data analytics on program related or system related activities.
+* This will include assessing performance and manual processes implementing methods/algorithms to automate and optimize
+* Strong experience with designing, developing, and deploying containerized AI/ML solutions
+
+SALARY RANGE: $188,000 - $269,000
+
+The salary range for this position is determined based on qualifications, skills, and relevant experience. The final salary offered will be determined based on several factors including:
+
+* The candidate's professional background and relevant work experience
+* The specific responsibilities of the role and organizational needs
+* Internal equity and alignment with current team compensation
+* This role is also eligible for additional compensation, subject to the terms and policies of MetroStar, which may include:
+* + Performance-based bonuses
+  + Company-paid training and/or certifications
+  + Referral bonuses
+
+*To apply for this position, please submit your resume via the form below or through our careers page:* *https://www.metrostar.com/jobs/*
+
+**Application Deadline:** Applications will be accepted on a rolling basis until the position is filled; candidates are encouraged to apply as early as possible for full consideration.
+
+**Additional Compensation**: This role may also be eligible for bonuses and/or additional incentives based on individual and company performance.
+
+**Benefits**: All full-time employees are eligible to participate in our benefits programs:
+
+* Health, dental, and vision insurance
+* 401(k) retirement plan with company match
+* Paid time off (PTO) and holidays
+* Parental Leave and dependent care
+* Flexible work arrangements
+* Professional development opportunities
+* Employee assistance and wellness programs
+
+Like we said, **we are** big fans of our people. That's why **we offer** a generous benefits package, professional growth, and valuable time to recharge. Learn more about our company culture code and benefits. Plus, check out our accolades.
+
+**Commitment to Non-Discrimination**  
+All qualified applicants will receive consideration for employment based on merit and without regard to sex, race, ethnicity, age, national origin, citizenship, religion, physical or mental disability, medical condition, genetic information, pregnancy, family structure, marital status, ancestry, domestic partner status, sexual orientation, gender identity or expression, veteran or military status, status as a protected veteran, or any other status protected by applicable federal, state, local, or international law.
+
+**What we want you to know:**
+
+In compliance with federal law, all persons hired will be required to verify identity and eligibility to work in the United States and to complete the required employment eligibility verification form upon hire.
+
+**Not ready to apply now?**
+
+Sign up to join our newsletter here.",,https://www.indeed.com/cmp/Metrostar-Systems,https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/94007e719ab0f90b0fd1a9413e52f462,http://www.metrostarsystems.com,"1856 Old Reston Avenue, Reston, VA",201 to 500,,A passion for technology. Value for our customers.,,,,,,
+in-2cbb3f07a186361c,indeed,https://www.indeed.com/viewjob?jk=2cbb3f07a186361c,http://www.indeed.com/job/internship-full-stack-dev-2cbb3f07a186361c,Internship Full stack dev,Pershing Global Solutions,"Remote, US",06-10-2025,internship,description,hourly,1,10,USD,TRUE,,,,,"***Full Stack Developer Intern***
+
+**Location:** Remote (international team across multiple time zones)
+
+**Duration:** 4–6 months (flexible depending on availability)
+
+**Start Date:** As soon as possible
+
+**About the Role**
+
+We are looking for a motivated and curious **Full Stack Developer Intern** to join our international team.
+
+This internship offers the opportunity to work on diverse web projects — from building modern front-end interfaces to creating robust back-end services, developing automation tools, and crafting plugins or custom modules for SaaS platforms or websites.
+
+You will collaborate within an agile environment alongside designers, product managers, and other developers. Depending on your skills and motivation, you may also explore advanced R&D topics such as artificial intelligence, blockchain, or innovative web technologies.
+
+**Key Responsibilities**
+
+* Develop and maintain web applications on both the front end (React, JavaScript/TypeScript) and back end (Node.js, Express).
+* Design and implement RESTful APIs to enable smooth integration between systems.
+* Build and maintain databases (MySQL/SQL) while ensuring data integrity and security.
+* Contribute to automation tools and create plugins or modules for SaaS products or WordPress websites.
+* Work closely with UI/UX designers to create user-friendly interfaces and improve user experience.
+* Participate in code reviews and manage version control with GitHub.
+* Conduct testing and debugging to ensure high-quality and optimized applications.
+* Take part in Agile ceremonies (sprint planning, reviews, retrospectives).
+* Explore and experiment with emerging technologies such as AI, blockchain, or cloud platforms when relevant to projects.
+
+**Ideal Candidate Profile**
+
+* Solid understanding of JavaScript/TypeScript and Node.js (Express or similar frameworks).
+* Experience with React for front-end development.
+* Basic knowledge of Python (useful for scripting and automation).
+* Familiarity with relational databases (MySQL/SQL).
+* Understanding of RESTful API design and integration.
+* Comfortable working in Linux environments.
+* Curious, proactive, problem-solver with strong analytical skills.
+* Good communication skills and ability to collaborate in a distributed team.
+* Proficiency in English or French (our team is international).
+
+**Nice to have:**
+
+* Experience with WordPress, N8N, Python, Solidity
+* Interest in AI, blockchain, or cutting-edge web technologies.
+* Familiarity with AWS / Azure or other cloud services.
+
+**What We Offer**
+
+* A dynamic and international work environment with real impact.
+* Hands-on experience on production-ready projects.
+* Opportunities to explore innovative technologies such as AI and blockchain.
+* A culture that values autonomy, curiosity, and learning.
+* Mentorship and guidance to help you grow as a full stack developer.
+
+Ideal for a computer science or engineering student, or a self-taught developer, looking to strengthen full stack development skills, gain experience on real-world projects, and explore cutting-edge web technologies.
+
+Job Type: Internship
+
+Pay: $1.00 - $10.00 per year
+
+Work Location: Remote",,https://www.indeed.com/cmp/Pershing-Global-Solutions,,,,,,,,,,,,
+in-1b1309e66e72c283,indeed,https://www.indeed.com/viewjob?jk=1b1309e66e72c283,https://jobs.fidelity.com/en/jobs/2118511/principal-full-stack-engineer-python-sql/,"Principal, Full Stack Engineer-Python & SQL",Fidelity Investments,"Boston, MA, US",05-10-2025,,,,,,,TRUE,,,,,"### **Job Description:**
+
+**The Role**
+
+The role is ideal for someone with an enterprise development background, with a strong technology, coding and data skills, looking to operate in a less constrained environment, as part of an accelerated development team.
+
+The role is ideal for a skilled technical leader with strong design, teamwork and influencing skills. Ideally the candidate is a full stack, but this role will be primarily focused on processing and generating Analytics from structured and unstructured datasets with the ability of parallel processing potentially in the cloud. The ideal candidate will quickly adapt to new technologies and a go-getter, with quantitative concepts and data. Willing to be in the on-call rotation.
+
+**The Expertise and Skills You Bring**
+
+* Bachelor’s or Master’s Degree in a technology related field (e.g. Engineering, Computer Science, etc.) required.
+* Strong Experience with object orientated programming, with projects completed using many of the following technologies including Python, RDBMS, and AWS
+* Strong Experience in Python especially in processing huge volumes of data
+* Knowledge of Cloud computing concepts (AWS) and using CI/CD tools
+* Experience in Building Angular / React SPA applications
+* 7+ years of enterprise development and a desire to work on a fast-paced development team.
+* Oracle / Snowflake experience is a plus
+* Experience of balancing multiple tracks concurrently is a must
+* Experience in planning, designing, leading, and executing technical solutions and improvements.
+* Strong problem-solving and troubleshooting skills with on call responsibilities.
+
+**The Skills You Bring**
+
+* You have a track record of engineering experience by processing large datasets and building scalable applications and Rapid Prototyping
+* You have a background with enterprise development and a consistent record rapidly bring projects from inception to delivery in ambitious timeframes. Using Python and RDBMS, SQL, PL/SQL
+* You have solid experience in Object Oriented Programming in Python or Java or C#
+* You have strong experience in processing large volumes of data
+* You have experience in Angular / React and building SPA applications
+* You have solid experience in developing custom Data Pipelines to extract data, map data, transform data, and to load data in various data stores like RDBMS, Oracle, S3, PL/SQL, and / or shared drives.
+* You have solid experience in Python and libraries such as Pandas / Numpy, etc. or Spark
+* You are familiar with extracting data from REST APIs
+* Your demonstrable experience developing scripting in Linux and Windows
+* Experience with migrating applications to AWS (Cloud) will be an added advantage.
+
+**The Team**
+
+The Advanced Strategies & Research Technology Team in Fidelity’s Asset Management organization is an embedded team passionate about unlocking the potential of new technologies, techniques and datasets, to assist our Investment Professionals in generating alpha for our investment products and customers. The team is comprised of a diverse set of technology professionals including application developers, database engineers, data scientists and tool prototypes with quantitative backgrounds who work collectively with our business partners to take ideas from a whiteboard, through prototypes that garner feedback to be rapidly deployed to our users, all the way through to integration with enterprise applications both on prem and on the cloud.
+
+### **Certifications:**
+
+### **Category:**
+
+Information Technology
+
+Most roles at Fidelity are Hybrid, requiring associates to work onsite every other week (all business days, M-F) in a Fidelity office. This does not apply to Remote or fully Onsite roles.
+
+Please be advised that Fidelity’s business is governed by the provisions of the Securities Exchange Act of 1934, the Investment Advisers Act of 1940, the Investment Company Act of 1940, ERISA, numerous state laws governing securities, investment and retirement-related financial activities and the rules and regulations of numerous self-regulatory organizations, including FINRA, among others. Those laws and regulations may restrict Fidelity from hiring and/or associating with individuals with certain Criminal Histories.",,https://www.indeed.com/cmp/Fidelity-Investments,https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/e787411ef64e3f2bc4baa3bcf9c771da,http://www.fidelitycareers.com,"Boston, MA","10,000+",more than $10B (USD),"At Fidelity Investments, you’ll find endless opportunities to build a meaningful career that positively impacts peoples’ lives, including yours.",,,,,,
+in-8815da88a6917386,indeed,https://www.indeed.com/viewjob?jk=8815da88a6917386,https://jobs.fidelity.com/en/jobs/2116126/senior-systems-analyst/,Senior Systems Analyst,Fidelity Investments,"Merrimack, NH, US",05-10-2025,,,,,,,TRUE,,,,,"### **Job Description:**
+
+Gathers requirements for new features or enhancements for portfolio construction platform and uses Oracle SQL for data analysis. Coordinates and runs User Acceptance Testing (UAT) sessions. Collaborates with the technology and business teams to deliver high quality solutions for business problems. Contributes to systems enhancements, using analysis and product owner practices across a global team. Executes analysis for medium-sized projects. Documents requirements, creates specifications and makes design recommendations for medium-sized projects.
+
+**Education and Experience:**  
+  
+Bachelor’s degree (or foreign education equivalent) in Computer Science, Business Analytics, Engineering, Information Technology, Information Systems, Mathematics, Physics, or a closely related field and three (3) years of experience as a Senior Systems Analyst (or closely related occupation) performing complex analysis of software or cloud-based applications, using SQL, API, or Webservices (REST, JSON, or SOAP).
+  
+  
+Or, alternatively, Master’s degree (or foreign education equivalent) in Computer Science, Business Analytics, Engineering, Information Technology, Information Systems, Mathematics, Physics, or a closely related field and one (1) year of experience as a Senior Systems Analyst (or closely related occupation) performing complex analysis of software or cloud-based applications, using SQL, API, or Webservices (REST, JSON, or SOAP).
+
+**The Expertise and Skills You Bring**
+
+* Works with business partners and technology partners to identify, review, define, interpret, and clarify scope of work in terms of business and/or system requirements and processes.
+* Contributes to the analysis strategy for technology projects culminating in the creation of documentation to support project needs.
+* Recommends changes to existing systems design to achieve requirements and recommends designs for new systems based on requirements.
+* Documents objectives, use cases, requirements, and specifications.
+* Monitors documentation standards and best practices.
+* Recommends traceability improvements.
+* Establishes project plans for projects of moderate scope and works on multiple projects concurrently.
+* Works directly with the user community for project definition.
+* Communicates project plan information, objectives, and deliverables to the team.
+* Works on complex assignments and on multiple phases of a project.
+* Writes business cases for review.
+* Identifies and records risks, issues, dependencies, and assumptions in accordance with project standards.
+* Participates in the review and validation of Quality Assurance test plans to ensure requirements have been met
+
+The Value you Deliver
+
+* Financial services industry knowledge and experience vital, investment management and/or wealth management domain knowledge a plus
+* Thrive in a global, team-based environment!
+* Excellent written and verbal communication skills with business and technical team members across the organization
+* Willingness to dive in and understand code for analysis and support purposes
+* Able to understand the technology and software architecture of an application
+* Ability to take sophisticated features and break them into stories with well-defined business value and acceptance criteria
+* Managing product backlogs by capturing key initiative requirements with internal and external dependencies identified and communicated through collaborative tools – JIRA, Microsoft Word, and SharePoint, Confluence
+* Proposing software solutions based on system and data analysis using SQL Developer, TOAD, Postman, Insomnia, or Python; and maximizing the throughput of self-organized teams using Scrum Methodology and Agile principles.
+* Managing stakeholders with defined roadmaps supported by Risk, Assumptions, Issues, and Dependencies insights by delivering status reports.
+* Performing functional and user acceptance testing of stories using SQL Developer, TOAD, Postman, Insomnia, Kafka - Offset Explorer, and Datadog for data validation and debugging, JIRA Align.
+
+**The Team**
+
+Strategic Advisors Technology (SAT) is looking for an experienced Analyst to work on one of Fidelity’s key strategic programs.
+
+As a senior systems analyst on the team, you work in partnership with the Strategic Advisors business stakeholders, Squad team members, Product Area Leader to understand the product vision and challenges. From there, you’ll work with your technology counterparts to deliver innovative, cost effective, architecturally aligned, and timely solutions. By demonstrating and promoting Fidelity and Agile leadership principles, you sustain and evolve our innovative agile culture.
+
+### **Certifications:**
+
+### **Category:**
+
+Information Technology
+
+Most roles at Fidelity are Hybrid, requiring associates to work onsite every other week (all business days, M-F) in a Fidelity office. This does not apply to Remote or fully Onsite roles.
+
+Please be advised that Fidelity’s business is governed by the provisions of the Securities Exchange Act of 1934, the Investment Advisers Act of 1940, the Investment Company Act of 1940, ERISA, numerous state laws governing securities, investment and retirement-related financial activities and the rules and regulations of numerous self-regulatory organizations, including FINRA, among others. Those laws and regulations may restrict Fidelity from hiring and/or associating with individuals with certain Criminal Histories.",,https://www.indeed.com/cmp/Fidelity-Investments,https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/e787411ef64e3f2bc4baa3bcf9c771da,http://www.fidelitycareers.com,"Boston, MA","10,000+",more than $10B (USD),"At Fidelity Investments, you’ll find endless opportunities to build a meaningful career that positively impacts peoples’ lives, including yours.",,,,,,
+in-144b973b4063cc32,indeed,https://www.indeed.com/viewjob?jk=144b973b4063cc32,https://jobs.fidelity.com/en/jobs/2116126/senior-systems-analyst/,Senior Systems Analyst,Fidelity Investments,"Boston, MA, US",05-10-2025,,,,,,,TRUE,,,,,"### **Job Description:**
+
+Gathers requirements for new features or enhancements for portfolio construction platform and uses Oracle SQL for data analysis. Coordinates and runs User Acceptance Testing (UAT) sessions. Collaborates with the technology and business teams to deliver high quality solutions for business problems. Contributes to systems enhancements, using analysis and product owner practices across a global team. Executes analysis for medium-sized projects. Documents requirements, creates specifications and makes design recommendations for medium-sized projects.
+
+**Education and Experience:**  
+  
+Bachelor’s degree (or foreign education equivalent) in Computer Science, Business Analytics, Engineering, Information Technology, Information Systems, Mathematics, Physics, or a closely related field and three (3) years of experience as a Senior Systems Analyst (or closely related occupation) performing complex analysis of software or cloud-based applications, using SQL, API, or Webservices (REST, JSON, or SOAP).
+  
+  
+Or, alternatively, Master’s degree (or foreign education equivalent) in Computer Science, Business Analytics, Engineering, Information Technology, Information Systems, Mathematics, Physics, or a closely related field and one (1) year of experience as a Senior Systems Analyst (or closely related occupation) performing complex analysis of software or cloud-based applications, using SQL, API, or Webservices (REST, JSON, or SOAP).
+
+**The Expertise and Skills You Bring**
+
+* Works with business partners and technology partners to identify, review, define, interpret, and clarify scope of work in terms of business and/or system requirements and processes.
+* Contributes to the analysis strategy for technology projects culminating in the creation of documentation to support project needs.
+* Recommends changes to existing systems design to achieve requirements and recommends designs for new systems based on requirements.
+* Documents objectives, use cases, requirements, and specifications.
+* Monitors documentation standards and best practices.
+* Recommends traceability improvements.
+* Establishes project plans for projects of moderate scope and works on multiple projects concurrently.
+* Works directly with the user community for project definition.
+* Communicates project plan information, objectives, and deliverables to the team.
+* Works on complex assignments and on multiple phases of a project.
+* Writes business cases for review.
+* Identifies and records risks, issues, dependencies, and assumptions in accordance with project standards.
+* Participates in the review and validation of Quality Assurance test plans to ensure requirements have been met
+
+The Value you Deliver
+
+* Financial services industry knowledge and experience vital, investment management and/or wealth management domain knowledge a plus
+* Thrive in a global, team-based environment!
+* Excellent written and verbal communication skills with business and technical team members across the organization
+* Willingness to dive in and understand code for analysis and support purposes
+* Able to understand the technology and software architecture of an application
+* Ability to take sophisticated features and break them into stories with well-defined business value and acceptance criteria
+* Managing product backlogs by capturing key initiative requirements with internal and external dependencies identified and communicated through collaborative tools – JIRA, Microsoft Word, and SharePoint, Confluence
+* Proposing software solutions based on system and data analysis using SQL Developer, TOAD, Postman, Insomnia, or Python; and maximizing the throughput of self-organized teams using Scrum Methodology and Agile principles.
+* Managing stakeholders with defined roadmaps supported by Risk, Assumptions, Issues, and Dependencies insights by delivering status reports.
+* Performing functional and user acceptance testing of stories using SQL Developer, TOAD, Postman, Insomnia, Kafka - Offset Explorer, and Datadog for data validation and debugging, JIRA Align.
+
+**The Team**
+
+Strategic Advisors Technology (SAT) is looking for an experienced Analyst to work on one of Fidelity’s key strategic programs.
+
+As a senior systems analyst on the team, you work in partnership with the Strategic Advisors business stakeholders, Squad team members, Product Area Leader to understand the product vision and challenges. From there, you’ll work with your technology counterparts to deliver innovative, cost effective, architecturally aligned, and timely solutions. By demonstrating and promoting Fidelity and Agile leadership principles, you sustain and evolve our innovative agile culture.
+
+### **Certifications:**
+
+### **Category:**
+
+Information Technology
+
+Most roles at Fidelity are Hybrid, requiring associates to work onsite every other week (all business days, M-F) in a Fidelity office. This does not apply to Remote or fully Onsite roles.
+
+Please be advised that Fidelity’s business is governed by the provisions of the Securities Exchange Act of 1934, the Investment Advisers Act of 1940, the Investment Company Act of 1940, ERISA, numerous state laws governing securities, investment and retirement-related financial activities and the rules and regulations of numerous self-regulatory organizations, including FINRA, among others. Those laws and regulations may restrict Fidelity from hiring and/or associating with individuals with certain Criminal Histories.",,https://www.indeed.com/cmp/Fidelity-Investments,https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/e787411ef64e3f2bc4baa3bcf9c771da,http://www.fidelitycareers.com,"Boston, MA","10,000+",more than $10B (USD),"At Fidelity Investments, you’ll find endless opportunities to build a meaningful career that positively impacts peoples’ lives, including yours.",,,,,,
+in-4063aafb578969da,indeed,https://www.indeed.com/viewjob?jk=4063aafb578969da,https://roboticstechno.com/view_job?mode=apply&id=33465&hr_id=,Sr. Python Developer AI/ML,,"San Francisco, CA, US",05-10-2025,,,,,,,FALSE,,,,,"* Job ID:
+
+  J49865
+* Job Title:
+
+  Sr. Python Developer AI/ML
+* Location:
+
+  San Francisco, CA
+* Duration:
+
+  18 Months + Extension
+* Hourly Rate:
+
+  Depending on Experience (DOE)
+* Work Authorization:
+
+  US Citizen, Green Card, OPT-EAD, CPT, H-1B,  
+  H4-EAD, L2-EAD, GC-EAD
+* Client:
+
+  To Be Discussed Later
+* Employment Type:
+
+  W-2, 1099, C2C
+
+  
+
+**Job Description:**
+
+**Role Overview:**
+
+We are seeking a highly motivated and skilled Python Developer with a strong background in Azure cloud services and hands-on experience in developing and deploying AI/ML solutions, particularly leveraging Retrieval-Augmented Generation (RAG) and vector-based search architectures. This is an exciting opportunity to join our dynamic team and contribute to building innovative and impactful applications. As an Onsite developer, you will collaborate closely with cross-functional teams throughout the development lifecycle.
+
+**Responsibilities:**
+
+* Design, develop, and deploy scalable and robust AI/ML applications using Python.
+* Implement and optimize Retrieval-Augmented Generation (RAG) pipelines for enhanced information retrieval and generation.
+* Design and implement efficient vector-based search solutions for semantic similarity and information retrieval.
+* Utilize Azure cloud services (e.g., Azure Machine Learning, Azure Cognitive Search, Azure Kubernetes Service, Azure Functions, Azure Blob Storage) to build and deploy AI/ML workloads.
+* Develop and maintain data pipelines for ingestion, processing, and storage of data used in AI/ML models.
+* Collaborate with data scientists and other engineers to understand requirements and translate them into technical solutions.
+* Write clean, well-documented, and testable code following best practices.
+* Troubleshoot and debug issues in development and production environments.
+* Stay up-to-date with the latest advancements in AI/ML, cloud technologies, and relevant open-source libraries.
+* Participate in code reviews and contribute to improving our development processes.
+* Work closely with the team in an onsite capacity, fostering collaboration and knowledge sharing.
+
+**Qualifications:**
+
+* Bachelor's or Master's degree in Computer Science, Engineering, or a related field.
+* Proven experience (typically 5+ years) as a Python Developer.
+* Solid understanding of Python programming concepts and best practices.
+* **Strong working knowledge of Azure cloud services** and their application in AI/ML workloads.
+* **Hands-on experience with AI/ML concepts and libraries** (e.g., TensorFlow, PyTorch, scikit-learn, Hugging Face Transformers).
+* **Significant experience in implementing Retrieval-Augmented Generation (RAG) architectures.**
+* **Experience in designing and implementing vector-based search solutions** using technologies like ChromaDB, FAISS, Annoy, or similar.
+* Experience with data processing and storage technologies (e.g., SQL, NoSQL databases, Azure Data Lake Storage).
+* Familiarity with containerization technologies like Docker and orchestration platforms like Kubernetes (preferably Azure Kubernetes Service - AKS).
+* Experience with CI/CD pipelines and DevOps practices.
+* Strong problem-solving and analytical skills.
+* Excellent communication and collaboration skills.
+* Ability to work independently and as part of a team in an onsite environment.
+
+**Preferred Qualifications:**
+
+* Experience with specific Azure AI services like Azure OpenAI Service.
+* Experience with MLOps practices and tools for deploying and monitoring AI/ML models.
+* Familiarity with natural language processing (NLP) techniques.
+* Contributions to open-source projects.
+
+  
+
+**Equal Opportunity Employer**  
+
+ROBOTICS TECHNOLOGIES LLC is an equal opportunity employer inclusive of female, minority, disability and veterans, (M/F/D/V). Hiring, promotion, transfer, compensation, benefits, discipline, termination and all other employment decisions are made without regard to race, color, religion, sex, sexual orientation, gender identity, age, disability, national origin, citizenship/immigration status, veteran status or any other protected status. ROBOTICS TECHNOLOGIES LLC will not make any posting or employment decision that does not comply with applicable laws relating to labor and employment, equal opportunity, employment eligibility requirements or related matters. Nor will ROBOTICS TECHNOLOGIES LLC require in a posting or otherwise U.S. citizenship or lawful permanent residency in the U.S. as a condition of employment except as necessary to comply with law, regulation, executive order, or federal, state, or local government contract",,,,,,,,,,,,,,
+in-4629ffac6ed7a83a,indeed,https://www.indeed.com/viewjob?jk=4629ffac6ed7a83a,https://roboticstechno.com/view_job?mode=apply&id=33487&hr_id=,React UI and Fast API developer,,"Atlanta, GA, US",05-10-2025,,,,,,,FALSE,,,,,"* Job ID:
+
+  J49887
+* Job Title:
+
+  React UI and Fast API developer
+* Location:
+
+  Atlanta, GA
+* Duration:
+
+  8 Months + Extension
+* Hourly Rate:
+
+  Depending on Experience (DOE)
+* Work Authorization:
+
+  US Citizen, Green Card, OPT-EAD, CPT, H-1B,  
+  H4-EAD, L2-EAD, GC-EAD
+* Client:
+
+  To Be Discussed Later
+* Employment Type:
+
+  W-2, 1099, C2C
+
+  
+
+**Job Description :**
+
+**Front-End Development**
+
+* Develop and maintain user interfaces using React.js and Node.js.
+* Implement responsive, interactive features following UI/UX best practices.
+* Optimize applications for speed and scalability.
+
+**Back-End Development**
+
+* Design and build RESTful APIs and server-side logic using Python.
+* Integrate with databases such as BigQuery, Spanner, MongoDB, and others.
+* Implement pub/sub messaging patterns for real-time data processing.
+
+**Performance Optimization**
+
+* Use caching techniques (including Redis) to boost performance.
+* Implement LLM/AI technologies to enhance system intelligence and automation.
+
+**Testing & Quality**
+
+* Conduct unit, regression, and integration testing.
+* Develop and maintain automated testing frameworks.
+
+**Collaboration**
+
+* Work with cross-functional teams to integrate front-end and back-end components.
+* Participate in code reviews and improve development processes.
+
+**CI/CD & Cloud**
+
+* Utilize CI/CD tools to automate build, test, and deployment pipelines.
+* Deploy and scale applications on GCP, AWS, and Azure.
+
+  
+
+**Must-Have:**
+
+* Bachelor’s degree in Computer Science or related field (Master’s preferred).
+* Proven experience as a Full Stack Developer.
+* Strong proficiency in React.js, Node.js, and Python.
+* Hands-on experience with RESTful API design and implementation.
+* Experience with databases (BigQuery, Spanner, MongoDB).
+* Familiarity with pub/sub messaging patterns.
+* Proficiency with CI/CD pipelines and tools.
+* Experience with cloud platforms (GCP, AWS, Azure).
+
+  
+
+**Equal Opportunity Employer**  
+
+ROBOTICS TECHNOLOGIES LLC is an equal opportunity employer inclusive of female, minority, disability and veterans, (M/F/D/V). Hiring, promotion, transfer, compensation, benefits, discipline, termination and all other employment decisions are made without regard to race, color, religion, sex, sexual orientation, gender identity, age, disability, national origin, citizenship/immigration status, veteran status or any other protected status. ROBOTICS TECHNOLOGIES LLC will not make any posting or employment decision that does not comply with applicable laws relating to labor and employment, equal opportunity, employment eligibility requirements or related matters. Nor will ROBOTICS TECHNOLOGIES LLC require in a posting or otherwise U.S. citizenship or lawful permanent residency in the U.S. as a condition of employment except as necessary to comply with law, regulation, executive order, or federal, state, or local government contract",,,,,,,,,,,,,,
+in-72cb9f6176a0bc38,indeed,https://www.indeed.com/viewjob?jk=72cb9f6176a0bc38,https://roboticstechno.com/view_job?mode=apply&id=33463&hr_id=,Python Developer Expert,,"DE, US",05-10-2025,,,,,,,FALSE,,,,,"* Job ID:
+
+  J49863
+* Job Title:
+
+  Python Developer Expert
+* Location:
+
+  Delaware, DE
+* Duration:
+
+  23 Months + Extension
+* Hourly Rate:
+
+  Depending on Experience (DOE)
+* Work Authorization:
+
+  US Citizen, Green Card, OPT-EAD, CPT, H-1B,  
+  H4-EAD, L2-EAD, GC-EAD
+* Client:
+
+  To Be Discussed Later
+* Employment Type:
+
+  W-2, 1099, C2C
+
+  
+
+### **Job Description:**
+
+We are seeking a skilled Python Developer to join our growing team. The ideal candidate will be responsible for designing, developing, and maintaining efficient, reusable, and reliable Python code. As a Python Developer, you will work closely with our engineering and data science teams to build and integrate various backend services and ensure seamless data flow and processing. You will also be involved in debugging and optimizing existing code to improve performance and reliability.
+
+### **Key Responsibilities:**
+
+* **Software Development:**
+
+  + Write clean, scalable, and efficient Python code for various applications.
+  + Design and implement high-availability and low-latency applications.
+  + Develop RESTful APIs and integrate with third-party services.
+  + Collaborate with front-end developers to integrate user-facing elements with server-side logic.
+* **Data Processing and Analysis:**
+
+  + Work with data science teams to implement data processing pipelines.
+  + Develop algorithms and tools for data extraction, transformation, and loading (ETL).
+  + Perform data analysis and generate insights using Python libraries like Pandas and NumPy.
+* **System Integration:**
+
+  + Integrate Python applications with databases, caching, and other backend services.
+  + Implement security and data protection measures.
+  + Develop and maintain unit tests and participate in code reviews.
+* **Optimization and Maintenance:**
+
+  + Optimize application performance and troubleshoot issues.
+  + Identify bottlenecks and bugs, and devise solutions to mitigate and address these issues.
+  + Continuously improve the codebase to ensure maintainability and scalability.
+* **Collaboration and Communication:**
+
+  + Work closely with cross-functional teams to understand requirements and deliver high-quality solutions.
+  + Participate in Agile development processes, including sprint planning, daily standups, and retrospectives.
+  + Provide technical guidance and mentorship to junior developers.
+
+### **Required Skills:**
+
+* Bachelor’s degree in Computer Science, Engineering, or a related field. Equivalent experience will be considered.
+* Proven experience as a Python Developer, with a strong portfolio of projects.
+* Proficiency in Python and related frameworks such as Django or Flask.
+* Experience with front-end technologies (HTML, CSS, JavaScript) is a plus.
+* Solid understanding of RESTful APIs and web services.
+* Familiarity with SQL and NoSQL databases (e.g., MySQL, PostgreSQL, MongoDB).
+* Experience with version control systems, particularly Git.
+* Strong problem-solving skills and attention to detail.
+* Excellent communication and teamwork skills.
+
+### **Desired Skills:**
+
+* Experience with cloud platforms like AWS, Google Cloud, or Azure.
+* Familiarity with containerization technologies like Docker.
+* Knowledge of microservices architecture.
+* Understanding of machine learning libraries (e.g., TensorFlow, Scikit-learn) is a plus.
+* Experience with continuous integration and continuous deployment (CI/CD) pipelines.
+
+,
+
+  
+
+**Equal Opportunity Employer**  
+
+ROBOTICS TECHNOLOGIES LLC is an equal opportunity employer inclusive of female, minority, disability and veterans, (M/F/D/V). Hiring, promotion, transfer, compensation, benefits, discipline, termination and all other employment decisions are made without regard to race, color, religion, sex, sexual orientation, gender identity, age, disability, national origin, citizenship/immigration status, veteran status or any other protected status. ROBOTICS TECHNOLOGIES LLC will not make any posting or employment decision that does not comply with applicable laws relating to labor and employment, equal opportunity, employment eligibility requirements or related matters. Nor will ROBOTICS TECHNOLOGIES LLC require in a posting or otherwise U.S. citizenship or lawful permanent residency in the U.S. as a condition of employment except as necessary to comply with law, regulation, executive order, or federal, state, or local government contract",,,,,,,,,,,,,,
+in-a9911793ab8af415,indeed,https://www.indeed.com/viewjob?jk=a9911793ab8af415,https://jobs.ashbyhq.com/promptfoo/ef5c3d00-bee0-459e-935b-aca6c1644519?utm_source=wnLbjaLKO5,Senior Developer Advocate (Founding DevRel),,"San Francisco, CA, US",05-10-2025,fulltime,,,,,,FALSE,,,,,"**About Promptfoo**
+-------------------
+
+Promptfoo is an open-source framework for evaluating AI agents, red teaming, and AI application security. Over 200,000 developers use it to test LLMs, LLM-powered applications, and agent behavior across tools and models, and plug into CI/CD. Promptfoo is the most popular open-source AI red-teaming framework and is growing quickly. Promptfoo is backed by Insight Partners and Andreessen Horowitz and is based in San Mateo, CA (SF Bay Area).
+
+  
+
+**Why This Role**
+-----------------
+
+* Be the public face of Promptfoo for developers.
+* Serve as the developer voice within the company.
+* Build and lead the education engine.
+* Grow a strong community.
+* Help teams confidently ship safer AI features.
+
+**What You Will Do**
+--------------------
+
+### **Content and Education**
+
+* Manage the editorial calendar and publish every week.
+* Create tutorials, deep dives, quick-start videos, and release explainers.
+* Write step-by-step guides using real configs, datasets, and results.
+* Record clear, 2 to 5 minute demo videos featuring simple diagrams and screenshots.
+
+### **Community and Channels**
+
+* Be active in Discord, unblocking users and turning FAQs into documentation and examples.
+* Share concise, practical tips on LinkedIn and X.
+* Host webinars, office hours, and Bay Area workshops.
+
+### **Docs and Developer Experience**
+
+* Improve documentation structure and reference pages.
+* Keep examples up to date as providers and features evolve.
+* Reduce friction in install, configuration, and CI setup.
+
+### **Demos and Integrations**
+
+* Build small, well-documented sample apps.
+* Demonstrate modern patterns for retrieval, agents, guardrails, and test data.
+* Track new frameworks and model APIs, publishing examples quickly.
+
+### **Feedback Loop**
+
+* Distill user feedback into clear issues and actionable proposals.
+* Validate fixes directly with users and close the feedback loop publicly.
+
+**What Success Looks Like in 90 Days**
+--------------------------------------
+
+* Become an expert in Promptfoo. Understand how to triage common issues from GitHub and Discord.
+* Publish one code-backed post, guide, or video each week covering new models, AI agent frameworks, or how to use common and new features in Promptfoo.
+* Tweak and make updates to the documentation based.
+* Help circulate and promote new Promptfoo features to our existing users via our mailing list.
+* Host a live workshop.
+
+  
+
+**Qualifications**
+------------------
+
+* 5+ years in developer-facing roles: Developer Advocate, Software Engineer, Solutions or Field Engineer, or Technical Writer.
+* Strong Python or TypeScript skills; able to build clean, minimal demos.
+* Portfolio of guides, talks, videos, or documentation.
+* Clear, concise communicator; comfortable live and on camera.
+* High agency: you plan, ship weekly, and iterate from data.
+* Proficiency using Promptfoo.
+
+  
+
+**Benefits**
+------------
+
+* Competitive salary and meaningful equity.
+* Full medical, dental, and vision coverage.
+* 401(k) plan.
+* New hardware and a productivity budget.
+* Travel to conferences and community events.
+* Flexible time off.",,,,,,,,,,,,,,
+in-359e7e788bf339f4,indeed,https://www.indeed.com/viewjob?jk=359e7e788bf339f4,https://jobsearch.harman.com/en_US/careers/JobDetail/Principal-Backend-Engineer/28911,Principal Backend Engineer,Harman,"Remote, US",03-10-2025,,direct_data,yearly,120750,177100,USD,TRUE,,,,harmancareers@harman.com,"Location:
+
+US Home Office Texas
+
+Job Family:
+
+Engineering
+
+Worker Type Reference:
+
+Regular - Permanent
+
+Pay Rate Type:
+
+Salary
+
+Career Level:
+
+T4
+
+Job ID:
+
+R-48541-2025
+
+  
+
+### **Description & Requirements**
+
+**Principal Backend Engineer – Music Discovery Platform** **- Roon**
+
+**About the Role**
+
+At Harman International, we are revolutionizing music metadata management and discovery. We’re seeking a **Principal Backend Engineer** to lead the development of scalable, high-performance backend systems powering our music discovery platform. As a Backend Engineer on our Data Team, you will be at the forefront of building scalable, cutting-edge solutions that power our world-class music metadata services. We are seeking experienced developers passionate about working with data and backend technologies to drive our continued growth and solidify our position as a global leader in music data.
+
+In this role, you’ll architect and build APIs that enable seamless music search, recommendation, personalization, and user interaction. Your work will ensure users can seamlessly discover the music they love by driving backend services that deliver high-quality, accurate data to our product teams reliably. You will collaborate closely with your colleagues in the Data Team and the broader Harman Software Experiences organization, contributing to developing and deploying data-driven features that enhance the user experience.
+
+**What you will Do:**
+
+* **Architect and develop** robust, scalable, and secure APIs for music catalog, recommendation, and search.
+
+* **Design data models** and manage integrations with third-party music metadata providers, streaming services, and analytics platforms.
+
+* **Lead backend engineering efforts**, setting coding standards, reviewing code, and mentoring junior engineers.
+
+* **Collaborate with product, frontend, and data teams** to define API contracts and deliver seamless user experiences.
+
+* **Optimize** **performance** of backend services, ensuring low latency and high availability.
+
+* **Implement observability tools** for monitoring, logging, and alerting to ensure system reliability.
+
+* **Drive technical innovation**, evaluating new technologies and frameworks to improve development velocity and system capabilities.
+
+**What you need to Be Successful:**
+
+* 10+ years of backend services development
+
+* **Technical Skills:** Strong understanding of modern backend development tools.
+
+* Strong proficiency in **Node.js, Python, or Go** or similar backend languages.
+
+* Deep understanding of **API design**, **microservices architecture**, and **cloud-native development**
+
+* **Cloud Platforms:** Hands-on experience with GCP, AWS, and Azure
+
+* **Deployment Technologies:** Expertise with Docker, Kubernetes, and Serverless architectures.
+
+* **CI/CD:** Proficient with automated pipelines for continuous build and integration systems.
+
+* Experience with **databases** (e.g., PostgreSQL, BigQuery), **caching strategies**, and **message queues** (e.g., Kafka, RabbitMQ).
+
+* Familiarity with **music metadata standards**, recommendation systems, or audio streaming APIs is a plus.
+
+**Bonus Points if You Have:**
+
+* Experience with **machine learning pipelines** or **recommendation engines** **(strongly desired)**
+
+* **Experience working with machine learning workloads in production**
+
+* **Experience working** **with audio music streaming** **services**
+
+* Knowledge of **music theory**, **audio fingerprinting**, or **digital signal processing**.
+
+* Familiarity with **C#** and .**NET** based technologies.
+
+* Contributions to open-source projects or technical blogs.
+
+* A passion for delivering top-notch audio experiences to users and an interest in the audio technology domain
+
+**What Makes You Eligible:**
+
+* Position is 100% Remote
+
+* You must be available for meetings and team interaction during typical continental US business hours.
+
+* Be willing to travel up to 5%, domestically and internationally.
+
+* Successfully complete a background investigation and drug screen as a condition of employment
+
+**What We Offer**
+
+* Competitive wellness benefits and 401K Retirement Savings plan.
+
+* An inclusive and diverse work environment that fosters and encourages career development opportunities.
+
+* Flexible work schedule with a culture encouraging work-life integration and collaboration in a global environment.
+
+* Professional development opportunities through HARMAN University’s business and leadership academies and extensive course catalog.
+
+* Tuition Reimbursement.
+
+* Access to employee discounts on world-class HARMAN products (JBL, Harman/Kardon, etc.).
+
+* “Be Brilliant” employee recognition and rewards program.
+
+#LI - Remote
+
+#LI-NW1
+
+**Pay Transparency**
+
+$ 120,750 - $ 177,100
+
+Dependent on the position offered, other forms of compensation are also available, such as bonuses or commission.
+
+Pay is based on a wide range of factors, including, without limitation, skill set, experience, training, location, and business need. While the above range is a reasonable estimate of the wage range for this position, please note the disclosed range estimate has not been adjusted for the applicable geographical differential associated with the location where the position may be filled.
+
+**Benefits**
+
+HARMAN is interested in the health and wellbeing of you and your family and offers a range of benefits designed to support your needs for holistic wellbeing. Benefits and perks may vary depending on the nature of your employment with HARMAN, and may include paid vacation and holidays, paid sick leave, volunteer leave, and paid bonding and care giver leave. Employees may also be eligible to participate in comprehensive medical, dental, and vision plans, fertility support and adoption assistance, Health Savings and Flexible Spending Accounts, retirement savings plan with employer match, short and long term disability coverage, life insurance, and more.
+
+**You Belong Here**
+
+HARMAN is committed to making every employee feel welcomed, valued, and empowered. No matter what role you play, we encourage you to share your ideas, voice your distinct perspective, and bring your whole self with you – all within a support-minded culture that celebrates what makes each of us unique. We also recognize that learning is a lifelong pursuit and want you to flourish. We proudly offer added opportunities for training, development, and continuing education, further empowering you to live the career you want.
+
+**About HARMAN: Where Innovation Unleashes Next-Level Technology**
+
+Ever since the 1920s, we’ve been amplifying the sense of sound. Today, that legacy endures, with integrated technology platforms that make the world smarter, safer, and more connected.
+
+Across automotive, lifestyle, and digital transformation solutions, we create innovative technologies that turn ordinary moments into extraordinary experiences. Our renowned automotive and lifestyle solutions can be found everywhere, from the music we play in our cars and homes to venues that feature today’s most sought-after performers, while our digital transformation solutions serve humanity by addressing the world’s ever-evolving needs and demands. Marketing our award-winning portfolio under 16 iconic brands, such as JBL, Mark Levinson, and Revel, we set ourselves apart by exceeding the highest engineering and design standards for our customers, our partners and each other.
+
+If you’re ready to innovate and do work that makes a lasting impact, join our talent community today!
+
+**Important Notice: Recruitment Scams**
+
+Please be aware that HARMAN recruiters will always communicate with you from an '@harman.com' email address. We will never ask for payments, banking, credit card, personal financial information or access to your LinkedIn/email account during the screening, interview, or recruitment process. If you are asked for such information or receive communication from an email address not ending in '@harman.com' about a job with HARMAN, please cease communication immediately and report the incident to us through: harmancareers@harman.com.
+
+HARMAN is proud to be an Equal Opportunity employer. HARMAN strives to hire the best qualified candidates and is committed to building a workforce representative of the diverse marketplaces and communities of our global colleagues and customers. All qualified applicants will receive consideration for employment without regard to race, religion, color, national origin, gender (including pregnancy, childbirth, or related medical conditions), sexual orientation, gender identity, gender expression, age, status as a protected veteran, status as an individual with a disability, or other applicable legally protected characteristics.HARMAN attracts, hires, and develops employees based on merit, qualifications and job-related performance.(www.harman.com)",,https://www.indeed.com/cmp/Harman,https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/b4bce70fae2e6afdc66511072314955f,https://www.harman.com,"Stamford, CT","10,000+",$5B to $10B (USD),HARMAN is an innovative technology leader that is rapidly on the move. We empower our global teams to do their best as they take on the big challenges that make life better.,,,,,,
+li-4298772799,linkedin,https://www.linkedin.com/jobs/view/4298772799,,Software Developer - Python,ModMed,"Boca Raton, FL",04-10-2025,,,,,,,FALSE,,,,,,,https://www.linkedin.com/company/modernizing-medicine,,,,,,,,,,,,
+li-4297473460,linkedin,https://www.linkedin.com/jobs/view/4297473460,,Python Developer,Infosys,"Boston, MA",03-10-2025,,,,,,,FALSE,,,,,,,https://in.linkedin.com/company/infosys,,,,,,,,,,,,
+li-4297722433,linkedin,https://www.linkedin.com/jobs/view/4297722433,,Associate Software Developer Engineer(Python),Workday,"Atlanta, GA",03-10-2025,,,,,,,FALSE,,,,,,,https://www.linkedin.com/company/workday,,,,,,,,,,,,
+li-4208452677,linkedin,https://www.linkedin.com/jobs/view/4208452677,,Python Software Engineer,MORSE Corp,,03-10-2025,,,,,,,FALSE,,,,,,,https://www.linkedin.com/company/morse-corp,,,,,,,,,,,,
+li-4278382831,linkedin,https://www.linkedin.com/jobs/view/4278382831,,Backend Engineer - Grok Chat,xAI,"Palo Alto, CA",03-10-2025,,,,,,,FALSE,,,,,,,https://www.linkedin.com/company/xai,,,,,,,,,,,,
+li-4308804848,linkedin,https://www.linkedin.com/jobs/view/4308804848,,Software Developer (Python) - Data,WorldLink US,"Plano, TX",03-10-2025,,,,,,,FALSE,,,,,,,https://www.linkedin.com/company/worldlink-us,,,,,,,,,,,,
+li-4297722434,linkedin,https://www.linkedin.com/jobs/view/4297722434,,Software Development Engineer(Python),Workday,"Atlanta, GA",03-10-2025,,,,,,,FALSE,,,,,,,https://www.linkedin.com/company/workday,,,,,,,,,,,,
+li-4307595120,linkedin,https://www.linkedin.com/jobs/view/4307595120,,Python Automation Developer,Delart,"Menlo Park, CA",03-10-2025,,,,,,,FALSE,,,,,,,https://www.linkedin.com/company/delartech,,,,,,,,,,,,
+li-4308843002,linkedin,https://www.linkedin.com/jobs/view/4308843002,,Python Developer,Avacend Inc,"Plano, TX",03-10-2025,,,,,,,FALSE,,,,,,,https://www.linkedin.com/company/avacend-inc,,,,,,,,,,,,
+li-4309451119,linkedin,https://www.linkedin.com/jobs/view/4309451119,,Python Developer,Sweetcode Lab,"Lincoln, CA",,,,,,,,FALSE,,,,,,,https://www.linkedin.com/company/sweetcodelab,,,,,,,,,,,,
